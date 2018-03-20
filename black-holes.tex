@@ -1,0 +1,462 @@
+\documentclass[11pt,oneside%,draft%
+]{memoir}
+
+% --- Packages ----------------------------------------------
+
+\usepackage[USenglish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+\usepackage{verbatim}
+\usepackage{tocloft}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{braket}
+\usepackage[hyphens]{url}
+\usepackage{makeidx}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue,linktocpage=true]{hyperref}
+
+% --- Book appearance ---------------------------------------
+
+%\setstocksize{57em}{37em}
+%\settrimmedsize{57em}{37em}{*}
+%\setlrmarginsandblock{5em}{*}{1}
+%\setulmarginsandblock{5em}{*}{1}
+%\setlength{\headsep}{1.33em}
+%\setlength{\footskip}{2.5em}
+%\setlength{\parindent}{0em}
+%\setlength{\parskip}{0.6em}
+%\fixpdflayout
+%\checkandfixthelayout
+
+\setstocksize{6in}{6in}
+\settrimmedsize{6in}{6in}{*}
+
+\setstocksize{8.7in}{6in}
+\settrimmedsize{8.7in}{6in}{*}
+\setlrmarginsandblock{0.8in}{*}{1}
+\setulmarginsandblock{0.8in}{*}{1}
+\setlength{\headsep}{0.215in}
+\setlength{\footskip}{2.5em}
+%\setlength{\parindent}{0em}
+%\setlength{\parskip}{0.6em}
+\fixpdflayout
+\checkandfixthelayout
+
+\makepagestyle{thphp}
+\makeevenhead{thphp}{\thepage}{\rightmark}{\thepage}
+\makeoddhead{thphp}{\thepage}{\rightmark}{\thepage}
+\makeoddfoot{thphp}{}{{}}{}
+\makeevenfoot{thphp}{}{{}}{}
+\pagestyle{thphp}
+
+\renewcommand{\cftdot}{}
+\setlength\cftparskip{1pt}
+
+% --- Mathematical notation ---------------------------------
+
+% Environments
+\newenvironment{eqna}{\begin{IEEEeqnarray*}{c}}{\end{IEEEeqnarray*}\ignorespacesafterend}
+\newenvironment{eqnb}{\begin{IEEEeqnarray*}{rCl}}{\end{IEEEeqnarray*}\ignorespacesafterend}
+\newenvironment{narration}{\begin{em}}{\end{em}}
+\newcommand{\nimi}[1]{\IEEEyesnumber\label{#1}}
+\renewenvironment{equation}{\sdfsdfsd}{\sdfsf}
+\renewenvironment{align}{\sdfsfsd}{\sdfsd}
+
+% Derivatives
+\newcommand{\der}[2]{\frac{\dd#1}{\dd#2}}
+\newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\cder}[2]{\frac{D #1}{D #2}}
+
+% Symbols
+\newcommand{\puoli}{\frac{1}{2}}
+\newcommand{\yksi}{\mathfrak{1}}
+\newcommand{\andd}{\qquad\textrm{and}\qquad}
+\newcommand{\orr}{\qquad\textrm{or}\qquad}
+\newcommand{\wheree}{\qquad\textrm{where}\qquad}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\circc}{\tau}
+\newcommand{\paika}{\mathfrak{s}}
+
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\dvec}[1]{\dot{\vec{#1}}}
+\newcommand{\ddvec}[1]{\ddot{\vec{#1}}}
+\newcommand{\pvec}[1]{\primed{\vec{#1}}}
+
+% Operators
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\reaaliosa}{Re}
+\DeclareMathOperator{\imaginaariosa}{Im}
+\renewcommand{\Re}{\reaaliosa}
+\renewcommand{\Im}{\imaginaariosa}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arcCot}
+\DeclareMathOperator{\arccsc}{arcCsc}
+\DeclareMathOperator{\arccosh}{arcCosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arcCsch}
+\DeclareMathOperator{\arccoth}{arcCoth}
+
+\newcommand{\primed}[1]{\hat{#1}}
+\newcommand{\ind}[1]{\mathfrak{#1}}
+\newcommand{\arxivreference}[1]{\url{#1}}
+
+% Differential geometry
+\newcommand{\chris}[3]{\{{_{#1}}\!{^{#2}}\!{_{#3}}\}}
+\newcommand{\tensy}[2]{#1^{#2}}
+\newcommand{\tensa}[2]{#1_{#2}}
+\newcommand{\tensay}[3]{#1_{#2}^{\phantom{#2}#3}}
+\newcommand{\tensya}[3]{#1^{#2}_{\phantom{#2}#3}}
+
+% Dialog characters
+\newcommand{\hea}{\(\blacklozenge\)\;}
+\newcommand{\heb}{\(\Game\)\;}
+
+% Colors and indices
+\definecolor{safi}{RGB}{0,100,100}
+\definecolor{oranssi}{RGB}{255,128,0}
+\newcommand{\coa}{{\color{black}\bullet}}
+\newcommand{\cob}{{\color{oranssi}\bullet}}
+\newcommand{\coc}{{\color{cyan}\bullet}}
+\newcommand{\cod}{{\color{red}\bullet}}
+\newcommand{\coe}{{\color{magenta}\bullet}}
+\newcommand{\cof}{{\color{green}\bullet}}
+\newcommand{\cog}{{\color{safi}\bullet}}
+\newcommand{\coh}{{\color{yellow}\bullet}}
+\newcommand{\coi}{{\color{blue}\bullet}}
+
+% UNCOMMENT THE NEXT LINE FOR TRADITIONAL GREEK INDICES
+%\renewcommand{\coa}{\alpha}\renewcommand{\cob}{\beta}\renewcommand{\coc}{\gamma}\renewcommand{\cod}{\delta}\renewcommand{\coe}{\mu}\renewcommand{\cof}{\nu}\renewcommand{\cog}{\rho}\renewcommand{\coh}{\sigma}\renewcommand{\coi}{\xi}
+
+% UNCOMMENT THE NEXT LINE FOR THE TRADITIONAL CIRCLE CONSTANT 2 PI
+%\renewcommand{\circc}{2\pi}
+
+\begin{document}
+
+\chapter{Spacetime}
+
+In physics the space of all events---which includes your birth, your death, and the moment you're reading these words---is called spacetime. It is, or at least seems to be four-dimensional, since it takes four coordinates---for example Greenwhich Mean Time, elevation, latitude and longitude---to label the events. The first of these four is obviously different to the rest: it is timelike, while the others are spacelike.
+
+For simplicity, let us drop the latitude and longitude and use only one timelike and one spacelike coordinate and denote them by \(t\) and \(r\). We may draw a diagram of events in spacetime by simply plotting them on paper. Conventionally \(t\) is taken to increase vertically and \(r\) horizontally.
+
+The life of a particle, for example you, appears as a continuous line of subsequent events, so-called world line, in the diagram. The length of a world line, denoted by \(\tau\), is measured by a real or imagined clock carried by the particle. As I'm writing this, my world line is 26.3 years long.
+
+Common sense and the choice of Greenwich Mean Time as \(t\) suggests that if we take two near events separated by \(\dd t\) and \(\dd r\) and draw a straight world line between them, the length of the world line is \(\dd\tau = \dd t\), and that any two world lines that begin and end at the same events have the same length. If I meet my friend today and again later, we have aged the same amount of time.
+
+This Galilean or Newtonian view of time is actually not true. In 1971 researchers observed that atomic clocks carried by airplane ticked slightly differently compared to atomic clocks resting on Earth, an affair that had been predicted decades ago on theoretical grouds. Therefore the equality \(\dd\tau = \dd t\) can only be approximately true.
+
+Could we find a better formula for \(\dd\tau\)? A simple attempt would be to consider \(\dd\tau\) as the hypothenuse of a right-angled triangle with \(\dd t\) and \(\dd r\) as the other two sides. Assuming that units of measurement are chosen suitably, the Pythagorean theorem would then give
+\begin{eqna}
+\dd\tau^2=\dd t^2+\dd r^2.
+\end{eqna}
+Now, if \(\dd r\) is much smaller than \(\dd t\), which corresponds to a world line of a slowly moving particle, we get \(\dd\tau\approx\dd t\).
+
+This is not correct. It conflicts experiments and treats \(t\) and \(r\) the same, even though the first should be timelike and the second spacelike. But if we change the plus sign into a minus one, we get
+\begin{eqna}
+\dd\tau^2=\dd t^2-\dd r^2,
+\end{eqna}
+which is actually right, provided that \(t\) and \(r\) are measured in suitable units.
+
+If we would also want to include longitude and latitude, denoted by \(\theta\) and \(\phi\), we would have to take something like
+\begin{eqna}
+\dd\tau^2=\dd t^2-\dd r^2 - r^2\,\dd\theta^2 - r^2\sin^2\theta\,\dd\phi^2,
+\end{eqna}
+or if we used Cartesian \(x,y,z\) space coordinates instead of polar ones, 
+\begin{eqna}
+\dd\tau^2=\dd t^2-\dd x^2 - \dd y^2 - \dd y^2.
+\end{eqna}
+The signature \({+}{-}{-}{-}\) manifests the fact that spacetime has one timelike and three spacelike dimensions.
+
+Let's continue with only \(t\) and \(r\) for clarity. There are a number of ways to ``derive'' \(\dd\tau^2=\dd t^2-\dd r^2\), yet I find them not satisfactory. Science advances by taking random ideas, testing them, and keeping only the ones that work. It's usually not possible to logically advance from observations to universal laws. Therefore I find it best to just present the core of the theory, proceed from that, and let you see that it works.
+
+So let's see. If \(\dd r=0\), we have \(\dd\tau=\dd t\), which means that particles at rest can measure their worldine length, in other words their own time, correctly with \(t\). If we increase \(\dd r\), then \(\dd\tau\) gets smaller. Time of a moving particle seems to tick slower than \(t\).
+
+If \(\dd t=\dd r\), then \(\dd\tau=0\). In other words, time of a particle moving with the speed \(\frac{\dd r}{\dd t}=1\) freezes. If \(\dd t <\dd r\), then \(\dd\tau\) becomes imaginary, which doesn't sound very sensible. Let's assume that for all realistic particles \(\dd t \geq\dd r\). no particle moves with a speed greater than 1.
+
+Since we need atomic clocks and airplanes to observe differences in worldline length, the speed limit, which in our units is simply equal to one, must be a very high speed. It must be greater or equal to the speed of anything we know of, including light.
+
+Observations suggest that light actually always moves with the maximum speed, which is why the maximum speed is usually called the speed of light. That means that if \(t\) is measured in years, then \(r\) must be measured in lightyears.
+
+If you clap your hands in front of a wall 150 meters away from you, it will take about a heartbeat for you to hear the clap. Light speed is about a million times greater than the speed of sound in air, so light moves about one kilometer while sound travels one millimeter.
+
+We may now draw a diagram of spacetime world lines and calculate their lengths. In figure 1 blaa blaa. We see that the straight world line has the longest length, and world lines that do zig-zag motion---which requires high speeds and acceleration at some points of the world line---experience less time.% This resolved the so-called twin paradox.
+
+\section{Lorentz transformation}
+
+Our \(t\) and \(r\) are one choice of coordinates. They define what it means for a particle to be at rest, but we know that resting is a very relative concept. In everyday situations we change the velocity of a coordinate system by simply changing \(r\rightarrow \tilde{r}=r-v\,t\) with \(v\) a parameter and using the original clock \(t\) as the new one \(\tilde{t}\) without any modifications. To change back, we take \(\tilde{r}\rightarrow r=\tilde{r}+v\tilde{t}\) and \(\tilde{t}\rightarrow t=\tilde{t}\).
+
+This is not satisfactory, since \(\dd\tau\) cannot be calculated by the same formula as in the original coordinate system: by using the chain rule of calculus, we get
+\begin{eqnb}
+\dd\tau^2&=&\dd t^2-\dd r^2\\
+         &=&\left(\pder{t}{\tilde{t}}\,\dd\tilde{t}+\pder{t}{\tilde{r}}\,\dd\tilde{r}\right)^2
+           -\left(\pder{r}{\tilde{t}}\,\dd\tilde{t}+\pder{r}{\tilde{r}}\,\dd\tilde{r}\right)^2\\
+         &=&\left(1\,\dd\tilde{t}+0\,\dd\tilde{r}\right)^2
+           -\left(v\,\dd\tilde{t}+1\,\dd\tilde{r}\right)^2\\
+         &=&\dd\tilde{t}^2-v^2\dd\tilde{t}^2-2v\,\dd\tilde{t}\,\dd \tilde{r}-\dd \tilde{r}^2.
+%-\left(\pder{r}{\tilde{r}}\,\dd\tilde{r}\right)^2
+\end{eqnb}
+For the new coordinates \(\tilde{t}\) and \(\tilde{r}\) to be of the same type as the original ones, we should have just \(\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2\).
+
+We can find such coordinates most easily by first transforming into so-called lightcone coordinates \(\sigma_+,\sigma_-\), which means visually rotating the \(t,r\) coordinates by 45 degrees. Mathematically we take
+%(and zooming by \(\sqrt{2}\)). Mathematically we take
+\begin{eqna}
+t\rightarrow\sigma_-=\frac{t-r}{\sqrt{2}}\andd r\rightarrow\sigma_+=\frac{t+r}{\sqrt{2}}.
+\end{eqna}
+The \(\sigma_\pm\) coordinate axes are the left- and right-moving light rays that pass through the event at \(t=0,r=0\).
+
+%Now
+%\begin{eqna}
+%\dd\sigma_\pm=\frac{\dd t\pm\dd r}{\sqrt{2}},
+%\end{eqna}
+%and
+Recalling the binomial identity \((a+b)(a-b)=a^2-b^2\), it holds that
+\begin{eqna}
+\dd\sigma_-\,\dd\sigma_+=\frac{\dd t-\dd r}{\sqrt{2}}\,\frac{\dd t+\dd r}{\sqrt{2}}=\frac{\dd t^2-\dd r^2}{2}.
+\end{eqna}
+This is why lightcone coordinates are useful to us: the world line element \(\dd\tau\) obeys the simple expression
+\begin{eqna}
+\dd\tau^2=2\,\dd\sigma_-\dd\sigma_+.
+\end{eqna}
+Now it is easy to obtain new lightcone coordinates \(\tilde{\sigma}_\pm\) in which \(\dd\tau^2\) has the same form: we take \(\tilde{\sigma}_\pm=\xi^{\pm 1}\sigma_\pm\) with \(\xi\) a positive-valued parameter. Then \(\dd\sigma_\pm=\xi^{\mp 1}\tilde{\sigma}_\pm\) and
+\begin{eqna}
+\dd\tau^2=2\,\dd\sigma_-\dd\sigma_+=2\,\xi\dd\sigma_-\frac{1}{\xi}\dd\sigma_+=2\,\dd\tilde{\sigma}_-\dd\tilde{\sigma}_+.
+\end{eqna}
+Now we just rotate back by
+\begin{eqna}
+\tilde{\sigma}_-\rightarrow \tilde{t}=\frac{\tilde{\sigma}_-+\tilde{\sigma}_+}{\sqrt{2}}\andd 
+\tilde{\sigma}_+\rightarrow \tilde{r}=\frac{\tilde{\sigma}_--\tilde{\sigma}_+}{\sqrt{2}}.
+\end{eqna}
+If we put all this together, we get
+\begin{eqnb}
+\tilde{t}&=&\frac{\xi}{2}(t-r)+\frac{1}{2\xi}(t+r)\\
+         &=&t\frac{1}{2}\left(\xi+\xi^{-1}\right)-r\frac{1}{2}\left(\xi-\xi^{-1}\right)\\
+         &=&t\cosh{\theta}-r\sinh{\theta}
+\end{eqnb}
+with \(\theta=\log\xi\). Similarly
+\begin{eqna}
+\tilde{r}=r\cosh{\theta}-t\sinh{\theta}.
+\end{eqna}
+This is almost the same as an ordinary rotation of plane---the only differences is that there are hyperbolic sine and cosine instead of ordinary sine and cosine, and one sign is different. This is because we changed the plus sign into a minus one to get the spacetime version of the Pythagorean theorem.
+
+It is now easy to verify that \(\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2\). In other words, we have found the new coordinates we wanted. Our transformation of coordinates is called Lorentz transformation. It relates two coordinate systems that correspond to two observers that move uniformly with respect to each other.
+
+%Lines of constant \(t+r\) are left-moving light rays, and lines of constant \(t-r\) are right-moving ones.Coordinate transformation that leaves \((t+r)(t-r)\) invariant therefore 
+
+Lorentz transformation stretches in the direction of the other light ray and shrinks by the same factor in the direction of the other one. It therefore keeps spacetime volume intact. It rotates the \(t\) axis in the opposite direction it rotates the \(r\) axis.
+
+%where \(\sigma_+=t+r\) and \(\sigma_-=t-r\). The coordinates \(\sigma_\pm\) are called light-cone coordinates and they are related to \(t\) and \(r\) by a visual rotation of 45 degrees in the spacetime diagram. Lines of constant \(\sigma_-\) and \(\sigma_+\) are left?-moving and right?-moving light rays respectively.
+%Now we just change \(r\rightarrow\tilde{r}\) and \(t\rightarrow\tilde{r}\) in such a way that \(\sigma_+\) gets scaled by \(\xi\) and \(\sigma_+\) by \(\frac{1}{\xi}\) with \(\xi\) a parameter of any real value. Then \(\dd\sigma_+\dd\sigma_-=\dd\tilde{\sigma}_+\dd\tilde{\sigma}_-\), and we get
+%\begin{eqna}
+%\dd\tau^2=\dd\tilde{\sigma}_+\,\dd\tilde{\sigma}_-=\dd(\tilde{t}+\tilde{r})\,\dd(\tilde{t}-\tilde{r})=\dd\tilde{t}^2-\dd\tilde{r}^2.
+%\end{eqna}
+%This transformation of coordinates is called Lorentz transformation. It visually 
+
+%The scaling keeps the formula of \(\dd\tau^2\) invariant as we move from \(\sigma_\pm\) to \(\tilde{\sigma}_\pm\). Then we just visually rotate back and get our \(\tilde{t},\tilde{r}\) coordinater for which \(\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2\).
+%\begin{eqna}
+%\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2
+%\end{eqna}
+%and
+%\begin{eqna}
+%\tilde{\sigma}_+=\tilde{t}+\tilde{r}\andd\tilde{\sigma}_-=\tilde{t}-\tilde{r}.
+%\end{eqna}
+ %An explicit formula for the complete change of coordinates would be
+%\begin{eqna}
+%\tilde{t}=t\cosh{\xi}-x\sinh{\xi}\andd\tilde{x}=x\cosh{\xi}-t\sinh{\xi}.
+%\end{eqna}
+%It doesn't pay to actually write down the calculation.
+
+\section{Absolute and subjective}
+
+While others may disagree with me about a certain fact, none can disagree with me about what my view is on that fact. The length of particles world line, \(\tau\), is equal to the time experinced by the particle, and is therefore by its very definition an absolute quantity.
+
+World lines of particles can be divided into two types: those with \(\dd\tau^2>0\), called timelike, and \(\dd\tau^2=0\), called lightlike. We can also imagine spacelike world lines with \(\dd\tau^2<0\), although no real particle can have such a world line. Type of a world line is an absolute quantity.
+
+For any two events with a timelike or lighlike worldline between them, their temporal order determined by the time coordinate \(t\) remains invariant under a Lorents transformation. This makes sense: the arrow of time points from cause to effect. The temporal order of events with timelike or lightlike separation is an absolute concept.
+
+Another absolute quantity is the acceleration experienced by a particle. It can be calculated by Lorentz transforming into a coordinate system in which the particle is temporarily at rest and then calculating \(\der{^2r}{t^2}\) just as we would in Newtonian mechanics.
+
+Most quantities that common sense regards as absolute are in reality subjective. The first one is of course the time elapsed between two events: different world lines may have different lengths, even if they happen to begin and end at the same two events.
+
+This subjectivity suggests that simultaneity may also be subjective: if another observer feels that one year has passed and anotherone feels that two years has passed, can we decide which events on their world lines are simultaneous? Of course we could decide, yet the decision would be arbitrary.
+
+A Lorentz transformation maps two events with the same values of \(t\) but different values of \(r\) into events with different values of \(\tilde{t}\). Therefore events that can be regarded simultaneous in the original coordinates do not map into simultaneous events in the new coordinates. Simultaneity of two separate events is a subjective concept.
+
+If two events appear simultaneous in one coordinate system, their separation is spacelike. For any two events with spacelike separation we can find a coordinate system in which they are simultaneous. We can also change their temporal order determined by the \(t\) coordinate by a suitable Lorentz transformation. The temporal order of events with spacelike separation is a subjective concept. It's not possible for such events to be causally related.
+
+Also distance is subjective. In everyday setting distance can be measured with rigid rods, but absolutely rigid rods cannot exist: if there was such a rod, then moving its other end would immediately cause also the other end to move. The causally related events would have a spacelike separation, which is not possible. Since distance is subjective, also spatial sizes and shapes of objects are subjective.
+
+\section{Causal relations of events}
+
+
+%Inspection of Lorentz transformations show that distance between two ends of an object 
+%
+%distance
+%elapsed time between two events
+%simultaneity
+%velocity and position (no shit sherlok)
+%temporal order of two events with spacelike separation
+%spatial sizes and shapes of objects
+%
+%
+%
+%A world line of a particle moving with speed 1 is of zero length. Such world lines are called light like. Lightlikeness is an absolute quantity.
+%
+%Many other quantities 
+%
+%
+%
+%light speed and light cones.
+%
+%Since worldlines with \(\dd t = \dd r\) have zero length
+%
+%temporal order of events with timelike separations
+%
+%percepted acceleration
+%
+%spacetime volume
+%
+%
+%
+%
+%\subsection{What is subjective?}
+
+%distance
+%elapsed time between two events
+%simultaneity
+%velocity and position (no shit sherlok)
+%temporal order of two events with spacelike separation
+%spatial sizes and shapes of objects
+
+\section{Accelerating observers}
+
+The coordinates we have used correspond to observers that move uniformly. They are not very convenient for accelerating observers. An accelerating observer would prefer accelerating coordinate system in which unchanging value of spacelike coordinate corresponds to a curved worldline of an accelerating particle.
+
+%We can of course choose any coordinate system we want. Useful properties for an accelerating coordinate system would be that every 
+
+In Newtonian-Galilean world a uniformly accelerating observer draws a parabola on \(t,r\) coordinate system. This cannot be exactly true, since it means that speed increases without any bound. In reality speed cannot exceed the speed of light, and therefore a uniformly accelerating observer draws some kind of hyperbola that asymptotically approaches the 45 degree slope of a light ray.
+
+% ``Uniformly accelerating'' means of course that the acceleration felt by the observer does not change along its world line.
+
+The shape of the world line of a uniformly accelerating observer is an absolute concept. It looks the same in every \((t,r)\) coordinate system in which \(\dd\tau^2=\dd t^2-\dd r^2\). The shape is therefore invariant in Lorentz transformation.
+
+For any straight, finite line that begins at the event at \((0,0)\) and ends at the event at \((t,r)\), Lorentz transformations keep \(t^2-r^2\) invariant. This is an immediate consequence of the invariance of \(\dd\tau^2=\dd t^2-\dd r^2\). Therefore any line defined by constancy of \(t^2-r^2\) has a Lorentz-invariant shape. If \(r^2-t^2=\alpha^2\) with real \(\alpha\), the line is timelike and could be a world line of a uniformly accelerating observer. Let's take such lines as the lines of constant spacelike coordinate of our accelerating coordinate system and use \(\alpha\) as the spacelike coordinate.
+
+The parameter \(\alpha\) determines where the line crosses the \(r\) axis. The smaller \(\alpha\), the larger the acceleration, as is evident from a picture. As \(\alpha\) approaches zero, the acceleration approaches inifity. It may seem strange to use a coordinate system in which acceleration depends on the spacelike coordinate, but if we want that the spatial distance between two nearby lines of constant spacelike coordinate does not depend on the time coordinate, we have no other choice.
+
+This can be heuristically understood by noting that if we accelerate a long rod, the rod becomes shorter because of the Lorentz contraction. Therefore the end of the rod must accelerate a little harder than the front. 
+
+The spatial distance of two world lines is not an absolute concept. Above I meant the distance that an observer at \(\alpha\) measures to another observer at \(\alpha+\dd\alpha\) using radar. Radar works by flashing a light and measuring how long it takes for the reflection to come back. The time is then divided by 2, because the pulse makes a round trip, and by the speed of light (which in our units is just 1).
+
+Radar ranging is the most generally useful definition of spatial distance in spacetime. It is a very concrete measure of how far something is: if it takes more than two seconds for light to bounce back from the surface of the Moon, then Moon really is far away.
+
+%The coordinate system we are building is clearly about to cover only one quarter of the whole spacetime. We will soon see that this is exactly how it should be.
+
+We still have to choose a timelike coordinate. Lorentz transformation changes the velocity of a reference frame, which for a uniformly accelerating frame should mean just translating the time coordinate. In other words a Lorentz transformation should map a line of constant timelike coordinate into another line of constant timelike coordinate. We therefore define the lines of constant timelike coordinate as the lines we get when we Lorentz transform the \(r\) axis, and use the Lorentz transformation parameter \(\theta\) as the new timeline coordinate.
+
+To get the transformation formula, we note that Lorentz transforming the point \((0,1)\) by \(-\theta\) gives \(t=\sinh\theta\) and \(r=\cosh\theta\), so
+\begin{eqna}
+\frac{t}{r}=\frac{\sinh\theta}{\cosh\theta}=\tanh{\theta}.
+\end{eqna}
+We can now write the complete transformation rule, which is
+\begin{eqna}
+t\rightarrow\theta=\arctanh\left(\frac{t}{r}\right)\andd r\rightarrow\alpha=\sqrt{r^2-t^2}.
+\end{eqna}
+The inverse transformation is simpler: we Lorentz transform \((0,\alpha)\) by \(\theta\), which gives
+\begin{eqna}
+\theta\rightarrow t=\alpha\sinh\theta\andd\alpha\rightarrow r=\alpha\cosh\theta.
+\end{eqna}
+For the world line element \(\dd\tau\) we get
+\begin{eqnb}
+\dd\tau^2&=&\left(\pder{t}{\theta}\,\dd\theta+\pder{t}{\alpha}\,\dd\alpha\right)^2
+           -\left(\pder{r}{\theta}\,\dd\theta+\pder{r}{\alpha}\,\dd\alpha\right)^2\\
+         &=&\left(\alpha\cosh\theta\,\dd\theta+\sinh\theta\,\dd\alpha\right)^2\\
+         &&-\left(\alpha\sinh\theta\,\dd\theta+\cosh\theta\,\dd\alpha\right)^2\\
+         &=&\alpha^2(\cosh^2\theta-\sinh^2\theta)\dd\theta^2
+           +(\sinh^2\theta-\cosh^2\theta)\dd\alpha^2.
+\end{eqnb}
+Since \(\cosh^2\theta-\sinh^2\theta=1\), we get the simple formula
+\begin{eqna}
+\dd\tau^2=\alpha^2\dd\theta^2-\dd\alpha^2.
+\end{eqna}
+
+
+
+
+
+
+the lines of constant timelike coordinate should be relate
+
+
+Lorentz transformations tilt the \(r\) axis, and therefore the natural choice for the new time coordinate is the parameter \(\theta\) that rotates the \(r\) axis so that the event lies on it. The formula is
+\begin{eqna}
+r\rightarrow\theta=\arctanh(\tfrac{t}{r})=\frac{1}{2}\log\left(\frac{\frac{t}{r}+1}{\frac{t}{r}-1}\right).
+\end{eqna}
+
+
+
+
+We could use the original \(t\), but it is not the most natural choice.
+
+
+Let's try the original \(t\). We get
+\begin{eqna}
+\dd\tau^2=
+\end{eqna}
+
+
+
+
+
+
+
+
+\section{Expanding universe}
+
+\begin{eqna}
+\dd\tau^2=\dd t^2-A(t)^2\dd r^2
+\end{eqna}
+
+\begin{eqna}
+\sigma_+\rightarrow\tilde{\sigma_+}=\eta\sigma_+\andd\sigma_-\rightarrow\tilde{\sigma_+}=\eta^{-1}\sigma
+\end{eqna}
+
+\section{Accelerating observers}
+
+Rindler metric:
+
+
+
+\section{Equivalence of gravity and acceleration}
+
+
+
+
+%\begin{eqna}
+%(\dd t+\dd r)(\dd t-\dd r)=(\dd \tilde{t}+\dd \tilde{r})(\dd \tilde{t}-\dd \tilde{r}).
+%\end{eqna}
+
+%Figure of world lines
+
+
+
+%Schwarzschild metric:
+%\begin{eqna}
+%\dd\tau^2=\left(1-\frac{1}{r}\right)\dd t^2-\frac{\dd r^2}{1-\frac{1}{r}}-r^2\left(\dd\theta^2 + \sin^2\theta\dd\psi^2\right).
+%\end{eqna}
+
+
+\end{document}
