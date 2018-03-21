@@ -147,57 +147,81 @@
 
 \begin{document}
 
+%\tableofcontents
+
 \chapter{Spacetime}
 
-In physics the space of all events---which includes your birth, your death, and the moment you're reading these words---is called spacetime. It is, or at least seems to be four-dimensional, since it takes four coordinates---for example Greenwhich Mean Time, elevation, latitude and longitude---to label the events. The first of these four is obviously different to the rest: it is timelike, while the others are spacelike.
+In physics the space of all events---which includes your birth, your death, and the moment you're reading these words---is called spacetime. It is, or at least seems to be, four-dimensional: it takes four coordinates---for example the Greenwhich Mean Time, the elevation, the latitude and the longitude---to label the events. The first of these four is obviously different to the rest: it is timelike, while the other three are spacelike.
 
-For simplicity, let us drop the latitude and longitude and use only one timelike and one spacelike coordinate and denote them by \(t\) and \(r\). We may draw a diagram of events in spacetime by simply plotting them on paper. Conventionally \(t\) is taken to increase vertically and \(r\) horizontally.
+\section{Mathematical foundations}
 
-The life of a particle, for example you, appears as a continuous line of subsequent events, so-called world line, in the diagram. The length of a world line, denoted by \(\tau\), is measured by a real or imagined clock carried by the particle. As I'm writing this, my world line is 26.3 years long.
+For simplicity, let's ignore the latitude and longitude and use only one timelike and one spacelike coordinate, denoted here by \(t\) and \(r\). We may draw a diagram of events by simply plotting them on paper. Conventionally \(t\) is taken to increase vertically and \(r\) horizontally.
 
-Common sense and the choice of Greenwich Mean Time as \(t\) suggests that if we take two near events separated by \(\dd t\) and \(\dd r\) and draw a straight world line between them, the length of the world line is \(\dd\tau = \dd t\), and that any two world lines that begin and end at the same events have the same length. If I meet my friend today and again later, we have aged the same amount of time.
+\newcommand{\myage}{26.3}
 
-This Galilean or Newtonian view of time is actually not true. In 1971 researchers observed that atomic clocks carried by airplane ticked slightly differently compared to atomic clocks resting on Earth, an affair that had been predicted decades ago on theoretical grouds. Therefore the equality \(\dd\tau = \dd t\) can only be approximately true.
+The life of a particle appears as a continuous line of subsequent events in the diagram. The line is called the world line of the particle. The length of the world line, denoted by \(\tau\), is defined to be measured by a real or imagined clock carried by the particle. As I'm writing this, my world line is {\myage} years long.
 
-Could we find a better formula for \(\dd\tau\)? A simple attempt would be to consider \(\dd\tau\) as the hypothenuse of a right-angled triangle with \(\dd t\) and \(\dd r\) as the other two sides. Assuming that units of measurement are chosen suitably, the Pythagorean theorem would then give
+There is nothing subjective or relative about the length of a world line. It measures how much progress local physical processes and natural phenomena have made along it. Ticking of a clock is one process, as are decay of alcohol levels in blood, learning to walk and growth of a cancer tumor.
+
+Everyday experience and the choice of the Greenwich Mean Time as \(t\) suggest that if we take two near events separated by \(\dd t\) and \(\dd r\) and draw a world line between them, the length of the world line is \(\dd\tau = \dd t\), and that any two world lines that begin and end at the same events have the same length, which is the difference \(\Delta t\) of the time coordinate values of the endpoint events. If I meet today a person who was born in the same hospital at the same day as i was, he or she will also turn out to be {\myage} years old.
+
+This Galilean or Newtonian view of time is not exactly true. For example in 1971 researchers observed that identical atomic clocks carried by different airplanes taking different routes made slightly different numbers of ticks. Therefore the equality \(\dd\tau = \dd t\) can only be approximately true.
+
+Could we find a more accurate formula for \(\dd\tau\)? A simple attempt would be to consider \(\dd\tau\) as the hypothenuse of a right-angled triangle with \(\dd t\) and \(\dd r\) as the other two sides. Assuming that units of measurement are chosen suitably, the Pythagorean theorem would give
 \begin{eqna}
 \dd\tau^2=\dd t^2+\dd r^2.
 \end{eqna}
-Now, if \(\dd r\) is much smaller than \(\dd t\), which corresponds to a world line of a slowly moving particle, we get \(\dd\tau\approx\dd t\).
+Now, if \(\dd r\) is much smaller than \(\dd t\), which corresponds to a worldline of a slowly moving particle, we get \(\dd\tau\approx\dd t\). If the particle moves fast, then \(\dd\tau>\dd t\); in other words, fast moving particles experience more time than those at rest.
 
-This is not correct. It conflicts experiments and treats \(t\) and \(r\) the same, even though the first should be timelike and the second spacelike. But if we change the plus sign into a minus one, we get
+This is not correct. According to experimental evidence, fast moving particles experience less, not more, time than those at rest. If we change the plus sign in the Pythagorean theorem into a minus one, we get
 \begin{eqna}
-\dd\tau^2=\dd t^2-\dd r^2,
+\dd\tau^2=\dd t^2-\dd r^2.
 \end{eqna}
-which is actually right, provided that \(t\) and \(r\) are measured in suitable units.
+Now fast moving particles experience less time.
 
-If we would also want to include longitude and latitude, denoted by \(\theta\) and \(\phi\), we would have to take something like
+If \(t\) and \(r\) are measured in suitable units, then \(\dd\tau^2=\dd t^2-\dd r^2\) is actually correct. If we would also want to include longitude and latitude, denoted by \(\theta\) and \(\phi\), we would have to take something like
 \begin{eqna}
 \dd\tau^2=\dd t^2-\dd r^2 - r^2\,\dd\theta^2 - r^2\sin^2\theta\,\dd\phi^2,
 \end{eqna}
 or if we used Cartesian \(x,y,z\) space coordinates instead of polar ones, 
 \begin{eqna}
-\dd\tau^2=\dd t^2-\dd x^2 - \dd y^2 - \dd y^2.
+\dd\tau^2=\dd t^2-\dd x^2 - \dd y^2 - \dd z^2.
 \end{eqna}
 The signature \({+}{-}{-}{-}\) manifests the fact that spacetime has one timelike and three spacelike dimensions.
 
-Let's continue with only \(t\) and \(r\) for clarity. There are a number of ways to ``derive'' \(\dd\tau^2=\dd t^2-\dd r^2\), yet I find them not satisfactory. Science advances by taking random ideas, testing them, and keeping only the ones that work. It's usually not possible to logically advance from observations to universal laws. Therefore I find it best to just present the core of the theory, proceed from that, and let you see that it works.
+Let's continue with only \(t\) and \(r\) for clarity. There are a number of ways to ``derive'' \(\dd\tau^2=\dd t^2-\dd r^2\), yet I find them not satisfactory. Science advances by taking random ideas, testing them, and keeping only the ones that work. It's usually not possible to logically advance from observations to universal laws. Therefore I find it best to just present the core of the theory, proceed from that, and let you see if that works.
 
 So let's see. If \(\dd r=0\), we have \(\dd\tau=\dd t\), which means that particles at rest can measure their worldine length, in other words their own time, correctly with \(t\). If we increase \(\dd r\), then \(\dd\tau\) gets smaller. Time of a moving particle seems to tick slower than \(t\).
 
-If \(\dd t=\dd r\), then \(\dd\tau=0\). In other words, time of a particle moving with the speed \(\frac{\dd r}{\dd t}=1\) freezes. If \(\dd t <\dd r\), then \(\dd\tau\) becomes imaginary, which doesn't sound very sensible. Let's assume that for all realistic particles \(\dd t \geq\dd r\). no particle moves with a speed greater than 1.
+If \(\dd t=\dd r\), then \(\dd\tau=0\). In other words, time of a particle moving with the speed \(\frac{\dd r}{\dd t}=1\) freezes. If \(\dd t <\dd r\), then \(\dd\tau\) becomes imaginary, which does not make sense. Let's assume that for all realistic particles \(\dd t \geq\dd r\): no particle moves with a speed greater than 1.
 
 Since we need atomic clocks and airplanes to observe differences in worldline length, the speed limit, which in our units is simply equal to one, must be a very high speed. It must be greater or equal to the speed of anything we know of, including light.
 
-Observations suggest that light actually always moves with the maximum speed, which is why the maximum speed is usually called the speed of light. That means that if \(t\) is measured in years, then \(r\) must be measured in lightyears.
+Observations suggest that light actually travels with exactly the maximum speed, which is why the maximum speed is usually called the speed of light. That means that if \(t\) is measured in years, then \(r\) must be measured in lightyears.
 
-If you clap your hands in front of a wall 150 meters away from you, it will take about a heartbeat for you to hear the clap. Light speed is about a million times greater than the speed of sound in air, so light moves about one kilometer while sound travels one millimeter.
+For an aircraft travelling with the speed \(\der{r}{t}=v\), we have
+\begin{eqna}
+\der{\tau}{t}=\frac{\sqrt{\dd t^2-\dd r^2}}{\dd t^2}=\sqrt{1-\left(\der{r}{t}\right)^2}=\sqrt{1-v^2}.
+\end{eqna}
+Light travels about a million times faster than sound travels in air, so if the aircraft travels with the speed of sound, we have
+\begin{eqna}
+\der{\tau}{t}=\sqrt{1-\left(10^{-6}\right)^2}\approx 1-\frac{1}{2}\left(10^{-6}\right)^2=0.999,999,999,999,5,
+\end{eqna}
+in which the approximation is just the first-order Taylor expansion of square root at 1. The error made with using \(\dd t\) as \(\dd\tau\) is ridiculously small. But if the aircraft could move with half the speed of light, which would take it to the Moon and back in less than five seconds, we would get
+\begin{eqna}
+\der{\tau}{t}=\sqrt{1-\left(\frac{1}{2}\right)^2}=\sqrt{\frac{3}{4}}\approx0.86.
+\end{eqna}
+Now the error would be significant.
 
-We may now draw a diagram of spacetime world lines and calculate their lengths. In figure 1 blaa blaa. We see that the straight world line has the longest length, and world lines that do zig-zag motion---which requires high speeds and acceleration at some points of the world line---experience less time.% This resolved the so-called twin paradox.
+%Figure 1: some worldlines between events A and B (and their lengths)
 
-\section{Lorentz transformation}
 
-Our \(t\) and \(r\) are one choice of coordinates. They define what it means for a particle to be at rest, but we know that resting is a very relative concept. In everyday situations we change the velocity of a coordinate system by simply changing \(r\rightarrow \tilde{r}=r-v\,t\) with \(v\) a parameter and using the original clock \(t\) as the new one \(\tilde{t}\) without any modifications. To change back, we take \(\tilde{r}\rightarrow r=\tilde{r}+v\tilde{t}\) and \(\tilde{t}\rightarrow t=\tilde{t}\).
+
+%If you clap your hands in front of a wall 150 meters away from you, it will take about a heartbeat for you to hear the clap. Light speed is about a million times greater than the speed of sound in air, so light moves about one kilometer while sound travels one millimeter.
+
+\section{Lorentz transformations}
+
+Our \(t\) and \(r\) are one choice of coordinates. They define what it means for a particle to be at rest, but we know that resting is a very relative concept. In everyday situations we change the velocity of a coordinate system by simply taking \(r\rightarrow \tilde{r}=r-v\,t\) with \(v\) the change of velocity and using the original clock \(t\) as the new one \(\tilde{t}\) without any modifications. Particles that were rest in the original coordinate system appear to move with the velocity \(-v\) in the new one. To change back, we take \(\tilde{r}\rightarrow r=\tilde{r}+v\tilde{t}\) and \(\tilde{t}\rightarrow t=\tilde{t}\).
 
 This is not satisfactory, since \(\dd\tau\) cannot be calculated by the same formula as in the original coordinate system: by using the chain rule of calculus, we get
 \begin{eqnb}
@@ -207,33 +231,26 @@ This is not satisfactory, since \(\dd\tau\) cannot be calculated by the same for
          &=&\left(1\,\dd\tilde{t}+0\,\dd\tilde{r}\right)^2
            -\left(v\,\dd\tilde{t}+1\,\dd\tilde{r}\right)^2\\
          &=&\dd\tilde{t}^2-v^2\dd\tilde{t}^2-2v\,\dd\tilde{t}\,\dd \tilde{r}-\dd \tilde{r}^2.
-%-\left(\pder{r}{\tilde{r}}\,\dd\tilde{r}\right)^2
 \end{eqnb}
 For the new coordinates \(\tilde{t}\) and \(\tilde{r}\) to be of the same type as the original ones, we should have just \(\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2\).
 
-We can find such coordinates most easily by first transforming into so-called lightcone coordinates \(\sigma_+,\sigma_-\), which means visually rotating the \(t,r\) coordinates by 45 degrees. Mathematically we take
-%(and zooming by \(\sqrt{2}\)). Mathematically we take
+We can find such coordinates most easily by first transforming into so-called lightcone coordinates \(\sigma_+,\sigma_-\), which means visually rotating the \(t,r\) coordinates by 45 degrees counter-clockwise. Mathematically we take
 \begin{eqna}
 t\rightarrow\sigma_-=\frac{t-r}{\sqrt{2}}\andd r\rightarrow\sigma_+=\frac{t+r}{\sqrt{2}}.
 \end{eqna}
-The \(\sigma_\pm\) coordinate axes are the left- and right-moving light rays that pass through the event at \(t=0,r=0\).
+The \(\sigma_\pm\) coordinate axes are the left- and right-moving light rays that pass through the event at \(t=0,r=0\). Neither of the \(\sigma_\pm\) is spacelike nor timelike; it can be said that they are both lightlike coordinates.
 
-%Now
-%\begin{eqna}
-%\dd\sigma_\pm=\frac{\dd t\pm\dd r}{\sqrt{2}},
-%\end{eqna}
-%and
-Recalling the binomial identity \((a+b)(a-b)=a^2-b^2\), it holds that
+Recalling the binomial identity \((a+b)(a-b)=a^2-b^2\), we get
 \begin{eqna}
 \dd\sigma_-\,\dd\sigma_+=\frac{\dd t-\dd r}{\sqrt{2}}\,\frac{\dd t+\dd r}{\sqrt{2}}=\frac{\dd t^2-\dd r^2}{2}.
 \end{eqna}
-This is why lightcone coordinates are useful to us: the world line element \(\dd\tau\) obeys the simple expression
+This is why lightcone coordinates are useful to us: the worldline element \(\dd\tau\) obeys the simple expression
 \begin{eqna}
 \dd\tau^2=2\,\dd\sigma_-\dd\sigma_+.
 \end{eqna}
-Now it is easy to obtain new lightcone coordinates \(\tilde{\sigma}_\pm\) in which \(\dd\tau^2\) has the same form: we take \(\tilde{\sigma}_\pm=\xi^{\pm 1}\sigma_\pm\) with \(\xi\) a positive-valued parameter. Then \(\dd\sigma_\pm=\xi^{\mp 1}\tilde{\sigma}_\pm\) and
+Now it is easy to obtain new lightcone coordinates \(\tilde{\sigma}_\pm\) in which \(\dd\tau^2\) has the same form: we take \(\sigma_\pm\rightarrow\tilde{\sigma}_\pm=\xi^{\pm 1}\sigma_\pm\) with \(\xi\) a positive-valued parameter. Then \(\dd\sigma_\pm=\xi^{\mp 1}\dd\tilde{\sigma}_\pm\) and
 \begin{eqna}
-\dd\tau^2=2\,\dd\sigma_-\dd\sigma_+=2\,\xi\dd\sigma_-\frac{1}{\xi}\dd\sigma_+=2\,\dd\tilde{\sigma}_-\dd\tilde{\sigma}_+.
+\dd\tau^2=2\,\dd\sigma_-\dd\sigma_+=2\,\xi\,\dd\tilde{\sigma}_-\frac{1}{\xi}\,\dd\tilde{\sigma}_+=2\,\dd\tilde{\sigma}_-\dd\tilde{\sigma}_+.
 \end{eqna}
 Now we just rotate back by
 \begin{eqna}
@@ -242,132 +259,130 @@ Now we just rotate back by
 \end{eqna}
 If we put all this together, we get
 \begin{eqnb}
-\tilde{t}&=&\frac{\xi}{2}(t-r)+\frac{1}{2\xi}(t+r)\\
-         &=&t\frac{1}{2}\left(\xi+\xi^{-1}\right)-r\frac{1}{2}\left(\xi-\xi^{-1}\right)\\
+\tilde{t}&=&\frac{1}{\sqrt{2}}\,\left(\xi^{-1}\sigma_-+\xi\sigma_+\right)\\
+         &=&\frac{1}{2\xi}(t-r)+\frac{\xi}{2}(t+r)\\
+         &=&t\,\frac{1}{2}\left(\xi^{-1}+\xi\right)-r\,\frac{1}{2}\left(\xi^{-1}-\xi\right)\\
          &=&t\cosh{\theta}-r\sinh{\theta}
 \end{eqnb}
-with \(\theta=\log\xi\). Similarly
+with \(\theta=-\log\xi\). Similarly
 \begin{eqna}
 \tilde{r}=r\cosh{\theta}-t\sinh{\theta}.
 \end{eqna}
-This is almost the same as an ordinary rotation of plane---the only differences is that there are hyperbolic sine and cosine instead of ordinary sine and cosine, and one sign is different. This is because we changed the plus sign into a minus one to get the spacetime version of the Pythagorean theorem.
+This is almost the same as an ordinary rotation of plane, which is understandable: we changed the plus sign in \(a^2+b^b=c^2\), which would have lead to ordinary rotations, into a minus one to get the spacetime version of the Pythagorean theorem. This is a useful notion, since it means that we can expect many similarities between rotations and Lorentz transformations and between ordinary space and spacetime.
 
-It is now easy to verify that \(\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2\). In other words, we have found the new coordinates we wanted. Our transformation of coordinates is called Lorentz transformation. It relates two coordinate systems that correspond to two observers that move uniformly with respect to each other.
+The inverse transformation is the same transformation into the opposite direction:
+\begin{eqna}
+\tilde{t}\rightarrow t=\tilde{t}\cosh(-\theta)-\tilde{r}\sinh(-\theta)=\tilde{t}\cosh\theta+\tilde{r}\sinh\theta
+\end{eqna}
+and
+\begin{eqna}
+\tilde{r}\rightarrow r=\tilde{r}\cosh(-\theta)-\tilde{t}\sinh(-\theta)=\tilde{r}\cosh\theta+\tilde{t}\sinh\theta
+\end{eqna}
+We may now calculate \(\dd\tau^2\). We get
+\begin{eqnb}
+\dd\tau^2&=&\dd t^2-\dd r^2\\
+         &=&\left(\pder{t}{\tilde{t}}\,\dd\tilde{t}+\pder{t}{\tilde{r}}\,\dd\tilde{r}\right)^2
+           -\left(\pder{r}{\tilde{t}}\,\dd\tilde{t}+\pder{r}{\tilde{r}}\,\dd\tilde{r}\right)^2\\
+         &=&\left(\cosh\theta\,\dd\tilde{t}+\sinh\theta\,\dd\tilde{r}\right)^2
+           -\left(\sinh\theta\,\dd\tilde{t}+\cosh\theta\,\dd\tilde{r}\right)^2\\
+         &=&(\cosh^2\theta-\sinh^2\theta)\,\dd\tilde{t}^2+(\sinh^2\theta-\cosh^2\theta)\,\dd\tilde{r}^2.
+\end{eqnb}
+Since \(\cosh^2\theta-\sinh^2\theta=1\), we get \(\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2\).
 
-%Lines of constant \(t+r\) are left-moving light rays, and lines of constant \(t-r\) are right-moving ones.Coordinate transformation that leaves \((t+r)(t-r)\) invariant therefore 
+The transformation we found is called Lorentz transformation. It relates two coordinate systems that correspond to two observers that move uniformly with respect to each other.
 
-Lorentz transformation stretches in the direction of the other light ray and shrinks by the same factor in the direction of the other one. It therefore keeps spacetime volume intact. It rotates the \(t\) axis in the opposite direction it rotates the \(r\) axis.
+Lorentz transformation stretches the \(t,r\) spacetime diagram in the direction of the other light ray and shrinks by the same factor in the direction of the other one. It keeps the spacetime volume element \(\dd t\,\dd t\) intact and tilts the \(t\) axis in the opposite direction it tilts the \(r\) axis.
 
-%where \(\sigma_+=t+r\) and \(\sigma_-=t-r\). The coordinates \(\sigma_\pm\) are called light-cone coordinates and they are related to \(t\) and \(r\) by a visual rotation of 45 degrees in the spacetime diagram. Lines of constant \(\sigma_-\) and \(\sigma_+\) are left?-moving and right?-moving light rays respectively.
-%Now we just change \(r\rightarrow\tilde{r}\) and \(t\rightarrow\tilde{r}\) in such a way that \(\sigma_+\) gets scaled by \(\xi\) and \(\sigma_+\) by \(\frac{1}{\xi}\) with \(\xi\) a parameter of any real value. Then \(\dd\sigma_+\dd\sigma_-=\dd\tilde{\sigma}_+\dd\tilde{\sigma}_-\), and we get
-%\begin{eqna}
-%\dd\tau^2=\dd\tilde{\sigma}_+\,\dd\tilde{\sigma}_-=\dd(\tilde{t}+\tilde{r})\,\dd(\tilde{t}-\tilde{r})=\dd\tilde{t}^2-\dd\tilde{r}^2.
-%\end{eqna}
-%This transformation of coordinates is called Lorentz transformation. It visually 
-
-%The scaling keeps the formula of \(\dd\tau^2\) invariant as we move from \(\sigma_\pm\) to \(\tilde{\sigma}_\pm\). Then we just visually rotate back and get our \(\tilde{t},\tilde{r}\) coordinater for which \(\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2\).
-%\begin{eqna}
-%\dd\tau^2=\dd\tilde{t}^2-\dd\tilde{r}^2
-%\end{eqna}
-%and
-%\begin{eqna}
-%\tilde{\sigma}_+=\tilde{t}+\tilde{r}\andd\tilde{\sigma}_-=\tilde{t}-\tilde{r}.
-%\end{eqna}
- %An explicit formula for the complete change of coordinates would be
-%\begin{eqna}
-%\tilde{t}=t\cosh{\xi}-x\sinh{\xi}\andd\tilde{x}=x\cosh{\xi}-t\sinh{\xi}.
-%\end{eqna}
-%It doesn't pay to actually write down the calculation.
+%Figure: Lorentz transformation deforms spacetime diagram
 
 \section{Absolute and subjective}
 
-While others may disagree with me about a certain fact, none can disagree with me about what my view is on that fact. The length of particles world line, \(\tau\), is equal to the time experinced by the particle, and is therefore by its very definition an absolute quantity.
+While others may disagree with me about a certain fact, none can disagree with me about what my view is on that fact. The length of particles world line, \(\tau\), is equal to the time experinced by the particle, and is by its very definition an absolute quantity. This is just repeating the same I stated in the beginning just using different words.
 
-World lines of particles can be divided into two types: those with \(\dd\tau^2>0\), called timelike, and \(\dd\tau^2=0\), called lightlike. We can also imagine spacelike world lines with \(\dd\tau^2<0\), although no real particle can have such a world line. Type of a world line is an absolute quantity.
+Another absolute thing is the \({+}{-}{-}{-}\) (or \({-}{+}{+}{+}\); which one is used is just a notational convention) signature of spacetime. No matter what perspective we choose, there will always be one timelike dimension and three spacelike dimensions.
 
-For any two events with a timelike or lighlike worldline between them, their temporal order determined by the time coordinate \(t\) remains invariant under a Lorents transformation. This makes sense: the arrow of time points from cause to effect. The temporal order of events with timelike or lightlike separation is an absolute concept.
+World lines of particles can be divided into two types: those with \(\dd\tau^2>0\), called timelike, and \(\dd\tau^2=0\), called lightlike. We can also imagine spacelike world lines with \(\dd\tau^2<0\), although such worldlines would have imaginary length, which does not make much sense. Type of a world line is an absolute quantity.
 
-Another absolute quantity is the acceleration experienced by a particle. It can be calculated by Lorentz transforming into a coordinate system in which the particle is temporarily at rest and then calculating \(\der{^2r}{t^2}\) just as we would in Newtonian mechanics.
+For any two events with a timelike or lighlike worldline between them, their temporal order defined by the time coordinate \(t\) remains invariant under a Lorents transformation. This makes sense: the arrow of time points from cause to effect. The arrow of time is at least for any practical purpose irreversible, a fact visible in the Second Law of thermodynamics. Causal order of events with a timelike or lightlike worldline connecting them is an absolute quantity.
 
-Most quantities that common sense regards as absolute are in reality subjective. The first one is of course the time elapsed between two events: different world lines may have different lengths, even if they happen to begin and end at the same two events.
+These are the most important absolute quantities in spacetime. Most quantities that common sense regards as absolute are in reality subjective. The most important of them is of course the time elapsed between two events: different world lines may have different lengths, even if they happen to begin and end at the same two events.
 
-This subjectivity suggests that simultaneity may also be subjective: if another observer feels that one year has passed and anotherone feels that two years has passed, can we decide which events on their world lines are simultaneous? Of course we could decide, yet the decision would be arbitrary.
+This subjectivity suggests that simultaneity is also subjective: if one observer feels that one year has passed and anotherone feels that two years has passed, can we decide which events on their world lines are simultaneous? We could, yet the decision would be arbitrary.
 
-A Lorentz transformation maps two events with the same values of \(t\) but different values of \(r\) into events with different values of \(\tilde{t}\). Therefore events that can be regarded simultaneous in the original coordinates do not map into simultaneous events in the new coordinates. Simultaneity of two separate events is a subjective concept.
+A Lorentz transformation maps two events with the same values of \(t\) but different values of \(r\) into events with different values of \(\tilde{t}\). Therefore events that appear simultaneous in the original coordinates do not map into simultaneous events in the new coordinates. Simultaneity of two separate events is a subjective concept.
 
-If two events appear simultaneous in one coordinate system, their separation is spacelike. For any two events with spacelike separation we can find a coordinate system in which they are simultaneous. We can also change their temporal order determined by the \(t\) coordinate by a suitable Lorentz transformation. The temporal order of events with spacelike separation is a subjective concept. It's not possible for such events to be causally related.
+If two events appear simultaneous in one coordinate system, their separation is spacelike. For any two events \(A\) and \(B\) with spacelike separation we can find a coordinate system in which they are simultaneous. We can also find a coordinate system in which \(A\) occurs before \(B\) according to the timelike coordinate, and a coordinate system in which \(B\) occurs before \(A\). The temporal order of events with spacelike separation is a subjective concept, and therefore it's not possible for such events to be causally related.
 
-Also distance is subjective. In everyday setting distance can be measured with rigid rods, but absolutely rigid rods cannot exist: if there was such a rod, then moving its other end would immediately cause also the other end to move. The causally related events would have a spacelike separation, which is not possible. Since distance is subjective, also spatial sizes and shapes of objects are subjective.
+In everyday setting distance can be measured with rigid rods, but absolutely rigid rods cannot exist: if there was such a rod, then moving its other end would immediately cause also the other end to move. The causally related events would have a spacelike separation, which is not possible.
 
-\section{Causal relations of events}
+The generally most useful definition of distance is the result of radar ranging measurement. Radar ranging works by flashing a light and measuring how long it takes for the reflection to come back. The time is then divided by 2, because the pulse makes a round trip, and by the speed of light (which in our units is just 1).
 
+The spatial distance of two world lines is not an absolute concept. Above I meant the distance that an observer at \(\alpha\) measures to another observer at \(\alpha+\dd\alpha\) using radar. Radar works by flashing a light and measuring how long it takes for the reflection to come back. The time is then divided by 2, because the pulse makes a round trip, and by the speed of light (which in our units is just 1). Radar ranging is a very concrete measure of how far something is: if it takes more than two seconds for light to bounce back from the surface of the Moon, then Moon really is far away.
 
-%Inspection of Lorentz transformations show that distance between two ends of an object 
-%
-%distance
-%elapsed time between two events
-%simultaneity
-%velocity and position (no shit sherlok)
-%temporal order of two events with spacelike separation
-%spatial sizes and shapes of objects
-%
-%
-%
-%A world line of a particle moving with speed 1 is of zero length. Such world lines are called light like. Lightlikeness is an absolute quantity.
-%
-%Many other quantities 
-%
-%
-%
-%light speed and light cones.
-%
-%Since worldlines with \(\dd t = \dd r\) have zero length
-%
-%temporal order of events with timelike separations
-%
-%percepted acceleration
-%
-%spacetime volume
-%
-%
-%
-%
-%\subsection{What is subjective?}
+Because the reflection cannot come back at the same event it was sent, it doesn't make any absolute sense to talk about distances of events. Instead we have to talk about distances of world lines. Distance may depend on when the light pulse is sent, but because it comes back at another event, it does not make sense to talk about the distance between two world lines at some specific time or event.
 
-%distance
-%elapsed time between two events
-%simultaneity
-%velocity and position (no shit sherlok)
-%temporal order of two events with spacelike separation
-%spatial sizes and shapes of objects
+Distance is subjective, which makes spatial sizes and shapes of objects subjective too.
 
-\section{Accelerating observers}
+\section{Causal structure of spacetime}
+
+Given any event \(E\), we can draw two light rays coming to it and two light rays emerging from it. What results is so-called light cone. All events inside the light cone can be connected to \(E\) by a timelike worldline and can therefore be causally connected to it. Events in the upper part of the cone are in the future of \(E\), and events in the lower part in its past.
+
+%Figure: light cone
+
+Events outside the light cone cannot be connected to \(E\) by timelike or lightlike worldlines. They have a spacelike separation to \(E\), and cannot be causally connected with it. Observers at \(E\) cannot see nor affect anything outside the cone. It doesn't matter how insane or violent things are happening outside the cone. They are invisible and untouchable to \(E\), period. The spacetime outside the cone is completely oblivious to \(E\). 
+
+Of course an observer at \(E\) may live long enough for a specific event outside \(E\)'s cone to enter into his or her current cone and become visible. Anyway, human lifetime less than a millionth of typical relevant worldline lengths in cosmology. We could try to circumvent this by hibernation or by choosing an accelerating worldline, yet biology severely limits our possibilities. On cosmological scale we cannot wait.
+
+According to standard cosmology, unverse was once opaque. If we look far enough down our light cone, our sight hits this wall called recombination. What we concretely observe is cosmic microwave radiation. Because of this, we only see a finite portion of spacetime (at least if we only detect electromagnetic radiation). Furthermore, since light always travels along the lightcone's border, we do not see the interior of the past cone, but only the border.
+
+% Figure: our past cone hits at recombination
+
+The causal structure manifested in cones drawn by light rays is the most fundamental structure of spacetime. It defines which events can be in causal connection to each other, and which are nonexistent to each other. It may be impossible to change in anyway, no matter what we tried to do.
+
+%If we look 13 billion years back in time, we see a two-dimensional slice of the events in which universe become transparent. What we actually see is cosmic microwave background.
+
+\chapter{Gravity}
 
 The coordinates we have used correspond to observers that move uniformly. They are not very convenient for accelerating observers. An accelerating observer would prefer accelerating coordinate system in which unchanging value of spacelike coordinate corresponds to a curved worldline of an accelerating particle.
 
+\section{Uniformly accelerating coordinates}
+
+Acceleration experienced by a particle is an absolute quantity. It can be calculated by Lorentz transforming into a coordinate system in which the particle is temporarily at rest and then calculating \(\der{^2r}{t^2}\) just as we would in Newtonian mechanics. If the acceleration experienced by the particle does not change along its worldline, the particle is said to be accelerating uniformly.
+
 %We can of course choose any coordinate system we want. Useful properties for an accelerating coordinate system would be that every 
 
-In Newtonian-Galilean world a uniformly accelerating observer draws a parabola on \(t,r\) coordinate system. This cannot be exactly true, since it means that speed increases without any bound. In reality speed cannot exceed the speed of light, and therefore a uniformly accelerating observer draws some kind of hyperbola that asymptotically approaches the 45 degree slope of a light ray.
+In Newtonian-Galilean world a uniformly accelerating observer draws a parabola on \(t,r\) coordinate system. This cannot be exactly true, since it means that speed increases without any bound. In reality speed cannot exceed the speed of light and a uniformly accelerating observer draws some kind of hyperbola that asymptotically approaches the 45 degree slope of a light ray.
 
-% ``Uniformly accelerating'' means of course that the acceleration felt by the observer does not change along its world line.
+This makes heuristic sense, since as the observer's speed approaches the speed of light, its time slows down and the acceleration it experiences will have less and less real time per a time coordinate step to raise the speed.
 
 The shape of the world line of a uniformly accelerating observer is an absolute concept. It looks the same in every \((t,r)\) coordinate system in which \(\dd\tau^2=\dd t^2-\dd r^2\). The shape is therefore invariant in Lorentz transformation.
 
 For any straight, finite line that begins at the event at \((0,0)\) and ends at the event at \((t,r)\), Lorentz transformations keep \(t^2-r^2\) invariant. This is an immediate consequence of the invariance of \(\dd\tau^2=\dd t^2-\dd r^2\). Therefore any line defined by constancy of \(t^2-r^2\) has a Lorentz-invariant shape. If \(r^2-t^2=\alpha^2\) with real \(\alpha\), the line is timelike and could be a world line of a uniformly accelerating observer. Let's take such lines as the lines of constant spacelike coordinate of our accelerating coordinate system and use \(\alpha\) as the spacelike coordinate.
 
-The parameter \(\alpha\) determines where the line crosses the \(r\) axis. The smaller \(\alpha\), the larger the acceleration, as is evident from a picture. As \(\alpha\) approaches zero, the acceleration approaches inifity. It may seem strange to use a coordinate system in which acceleration depends on the spacelike coordinate, but if we want that the spatial distance between two nearby lines of constant spacelike coordinate does not depend on the time coordinate, we have no other choice.
+All such lines correspond to a particle temporarily at rest when \(t=0\). If we solve the line's equation for \(r\) as a function of \(t\) and \(\alpha\), we get
+\begin{eqna}
+r(t,\alpha)=\sqrt{t^2+\alpha^2}.
+\end{eqna}
+Differentiating this twice with respect to \(t\) gives
+\begin{eqna}
+\der{^2r}{t^2}=\frac{\alpha^2}{\left(t^2+\alpha^2\right)^{3/2}}.
+\end{eqna}
+Setting \(t=0\) gives \(\frac{1}{\alpha}\). In other words, observers corrseponding to smaller \(\alpha\) experience greater accelerations, and as \(\alpha\) approaches zero, the acceleration approaches inifity.
 
-This can be heuristically understood by noting that if we accelerate a long rod, the rod becomes shorter because of the Lorentz contraction. Therefore the end of the rod must accelerate a little harder than the front. 
+It may seem strange to use a coordinate system in which acceleration depends on the spacelike coordinate, but if we want that the radar distance between two nearby lines of constant spacelike coordinate does not depend on the time coordinate, we have no other choice. This can be easily seen from a picture.
 
-The spatial distance of two world lines is not an absolute concept. Above I meant the distance that an observer at \(\alpha\) measures to another observer at \(\alpha+\dd\alpha\) using radar. Radar works by flashing a light and measuring how long it takes for the reflection to come back. The time is then divided by 2, because the pulse makes a round trip, and by the speed of light (which in our units is just 1).
+%figure: radar distance of nearby constant alpha lines
 
-Radar ranging is the most generally useful definition of spatial distance in spacetime. It is a very concrete measure of how far something is: if it takes more than two seconds for light to bounce back from the surface of the Moon, then Moon really is far away.
+%This can be heuristically understood by noting that if we accelerate a long rod, the rod becomes shorter because of the Lorentz contraction. Therefore the end of the rod must accelerate a little harder than the front. 
+
 
 %The coordinate system we are building is clearly about to cover only one quarter of the whole spacetime. We will soon see that this is exactly how it should be.
 
-We still have to choose a timelike coordinate. Lorentz transformation changes the velocity of a reference frame, which for a uniformly accelerating frame should mean just translating the time coordinate. In other words a Lorentz transformation should map a line of constant timelike coordinate into another line of constant timelike coordinate. We therefore define the lines of constant timelike coordinate as the lines we get when we Lorentz transform the \(r\) axis, and use the Lorentz transformation parameter \(\theta\) as the new timeline coordinate.
+Next we have to choose a timelike coordinate. Lorentz transformation changes the velocity of a reference frame, which for a uniformly accelerating frame should mean just translating the time coordinate. In other words a Lorentz transformation should map a line of constant timelike coordinate into another line of constant timelike coordinate.
 
-To get the transformation formula, we note that Lorentz transforming the point \((0,1)\) by \(-\theta\) gives \(t=\sinh\theta\) and \(r=\cosh\theta\), so
+We therefore define the lines of constant timelike coordinate as the lines we get when we inverse-Lorentz transform the \(r\) axis, and use the transformation parameter \(\theta\) as the new timeline coordinate. We use inverse transformation in order to get a time coordinate that increases as \(t\) increases and not the opposite.
+
+To get the transformation formula, we note that inverse-Lorentz transforming the point \((0,1)\) by \(\theta\) gives \(t=\sinh\theta\) and \(r=\cosh\theta\), so
 \begin{eqna}
 \frac{t}{r}=\frac{\sinh\theta}{\cosh\theta}=\tanh{\theta}.
 \end{eqna}
@@ -375,16 +390,18 @@ We can now write the complete transformation rule, which is
 \begin{eqna}
 t\rightarrow\theta=\arctanh\left(\frac{t}{r}\right)\andd r\rightarrow\alpha=\sqrt{r^2-t^2}.
 \end{eqna}
+The \(\theta,\alpha\) coordinates are called Rindler coordinates. They cover only one quarter of the whole spacetime which will turn out to make sense.
+
 The inverse transformation is simpler: we Lorentz transform \((0,\alpha)\) by \(\theta\), which gives
 \begin{eqna}
-\theta\rightarrow t=\alpha\sinh\theta\andd\alpha\rightarrow r=\alpha\cosh\theta.
+\theta\rightarrow t=-\alpha\sinh\theta\andd\alpha\rightarrow r=\alpha\cosh\theta.
 \end{eqna}
 For the world line element \(\dd\tau\) we get
 \begin{eqnb}
 \dd\tau^2&=&\left(\pder{t}{\theta}\,\dd\theta+\pder{t}{\alpha}\,\dd\alpha\right)^2
            -\left(\pder{r}{\theta}\,\dd\theta+\pder{r}{\alpha}\,\dd\alpha\right)^2\\
-         &=&\left(\alpha\cosh\theta\,\dd\theta+\sinh\theta\,\dd\alpha\right)^2\\
-         &&-\left(\alpha\sinh\theta\,\dd\theta+\cosh\theta\,\dd\alpha\right)^2\\
+         &=&\left(-\alpha\cosh\theta\,\dd\theta-\sinh\theta\,\dd\alpha\right)^2
+         -\left(\alpha\sinh\theta\,\dd\theta+\cosh\theta\,\dd\alpha\right)^2\\
          &=&\alpha^2(\cosh^2\theta-\sinh^2\theta)\dd\theta^2
            +(\sinh^2\theta-\cosh^2\theta)\dd\alpha^2.
 \end{eqnb}
@@ -393,38 +410,61 @@ Since \(\cosh^2\theta-\sinh^2\theta=1\), we get the simple formula
 \dd\tau^2=\alpha^2\dd\theta^2-\dd\alpha^2.
 \end{eqna}
 
+\section{Ramifications of acceleration}
 
+The formula \(\dd\tau^2=\alpha^2\dd\theta^2-\dd\alpha^2\), or the metric as it is often called, has many good properties. First, it is very simple. Second, it does not depend on the timelike coordinate \(\theta\), so phenomenology remains the same as we move along \(\theta\); in particular, the constant \(\alpha\) lines really are world lines of uniform acceleration, and the radar distance of neighboring constant \(\alpha\) lines does not change we move along \(\theta\). Third, it has no term with \(\dd\theta\,\dd\alpha\). %Why this is good?
 
+Every accelerating coordinate system gives rise to fictious forces that seem to affect universally to everything. In rally car the force seem to randomly shake the driver and the kartanlukija in varying directions, and in a carousel there is a centrifugal force that tries to rip everything away from the centre. If angular momentum is fixed, then the centrifugal force becomes stronger near the center, and if the angular velocity is fixed, then the force weakens when moving towards the center.
 
+In the Rindler coordinates the fictious force points towards lower values of \(\alpha\). It does not depend on \(\theta\), but it gets greater as \(\alpha\) decreases. It pulls everything towards \(\alpha=0\), including light.
 
+For constant \(\alpha\) we have simply \(\dd\tau=\alpha\,\dd\theta\). If two light rays are sent from \(\alpha=\alpha_0\) and received at \(\alpha_1>\alpha_0\), both rays take the same amount \(\Delta\theta\) of coordinate time to travel. Anyway, the greater the \(\alpha\), the faster the observer's own time ticks compared to the coordinate time \(\theta\), so the time experienced by the sender between the events of sending is less than the time experiend by the receiver between the events of receiving.
 
-the lines of constant timelike coordinate should be relate
+If many subsequent light rays are being sent, the frequency by which the receiver observes them is less than the frequency by which they are being sent. This holds for any frequency of signals sent from lower \(\alpha\) to higher, including the frequengy of light, which consists of electromagnetic waves.
 
+Therefore the color of visible light shifts towars the lower frequency end of the spectrum, that is, towars red. It can be viewed simply as a Doppler shift: in terms of the original \(t,r\) coordinate system the sender moves slower at the time of sending than the receiver moves at the time of receiving.
 
-Lorentz transformations tilt the \(r\) axis, and therefore the natural choice for the new time coordinate is the parameter \(\theta\) that rotates the \(r\) axis so that the event lies on it. The formula is
-\begin{eqna}
-r\rightarrow\theta=\arctanh(\tfrac{t}{r})=\frac{1}{2}\log\left(\frac{\frac{t}{r}+1}{\frac{t}{r}-1}\right).
-\end{eqna}
+As \(\alpha\rightarrow0\), interesting things seem to happen. First, as we noted earlier, acceleration becomes infinite, and it becomes infinitely difficult to hang on the accelerating frame. On the other hand, since \(\dd\tau\rightarrow0\), particle's time freezes. Redshift diverges and all signals coming from the vicinity of \(\alpha=0\) get redshifted to infrared and ultimately to black. All timelike and lightlike worldlines approach asymptotically the \(\alpha=0\) line. Motion stops. No worldline crosses the line, which is, according to the radar definition of distance, infinitely far away from any line of constant \(\alpha>0\), since no light ray will ever return from \(\alpha=0\).
 
+The meaning of the line \(\alpha=0\) can be most easily understood in terms of \(t,r\) coordinates. It is a lightlike limiting case of the uniformly accelerating timelike worldlines. It consists of a light ray that comes from right, bounces at \(0,0\) and goes back to right; in other words it consists of the right side of the light cone of the event \(0,0\).
 
+All events on the Rindler coordinate system are located on the right outside the \(0,0\) light cone. No event in the future cone is a cause to an event in the Rindler frame, and no event in the past cone is a consequence of an event in the Rindler frame.
 
+Therefore letting go off the Rindler frame and falling past the \(\alpha=0\) line means leaving the events in the Rindler frame for good. If you do that, no observer that stays in the Rindler frame will ever hear from you again. This is is reflected to the Rindler coordinate system: it appears that nothing can pass the \(\alpha=0\) line, because signals coming from a falling particle will arrive later and later at any fixed \(\alpha>0\). The signals that the falling particle sends at the event of crossing will be received at \(\theta=\infty\), that is, never.
 
-We could use the original \(t\), but it is not the most natural choice.
+This is why the lightlike \(\alpha=0\) line is called an event horizon. It marks a moment in time after which you have left a certain region of spacetime for good. Those who stay in the region cannot see past the event horizon, much like sailors cannot see past the fsfds horizon.
 
+\section{The equivalence principle}
 
-Let's try the original \(t\). We get
-\begin{eqna}
-\dd\tau^2=
-\end{eqna}
+Gravity seems to affect everything in the same way, just like a fictious forces affect particles in accelerating coordinate systems. According to so-called equivalence principle, gravity \emph{is} a fictious force, and we fall towards the ground because the ground is accelerating towards us.
 
+If this is true, then the Rindler coordinate system must be at least approximately right for us here on Earth, and the phenomena we found in the Rindler frame must also be observed in terrestrial laboratories. This is how it has turned out to be; for example in 1959 researchers observed redshift of light that climbed 22.5 meters up from the basement of their laboratory.
 
+On Earth we don's see anything that would look like the \(\alpha=0\) event horizon of the Rindler frame. 
 
+%equivalence of mass and energy
 
+\section{Spacetime curves}
 
-
-
+\chapter{Our universe}
 
 \section{Expanding universe}
+
+\chapter{Dynamics}
+
+\section{A bit of differential geometry}
+
+\section{Gravitational waves}
+
+\section{Field equations}
+
+\chapter{Black holes}
+
+\section{The Schwartzchild solution}
+
+\section{Black holes merge}
+
+\section{dsfs}
 
 \begin{eqna}
 \dd\tau^2=\dd t^2-A(t)^2\dd r^2
