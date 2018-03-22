@@ -438,29 +438,166 @@ This is why the lightlike \(\alpha=0\) line is called an event horizon. It marks
 
 Gravity seems to affect everything in the same way, just like a fictious forces affect particles in accelerating coordinate systems. According to so-called equivalence principle, gravity \emph{is} a fictious force, and we fall towards the ground because the ground is accelerating towards us.
 
-If this is true, then the Rindler coordinate system must be at least approximately right for us here on Earth, and the phenomena we found in the Rindler frame must also be observed in terrestrial laboratories. This is how it has turned out to be; for example in 1959 researchers observed redshift of light that climbed 22.5 meters up from the basement of their laboratory.
+If this is true, then the Rindler coordinate system must be at least approximately right for us here on Earth, and the phenomena we found in the Rindler frame must also be observable in terrestrial laboratories. This is how it has turned out to be; for example in 1959 researchers observed redshift of light that climbed 22.5 meters up from the basement of their laboratory.
 
-On Earth we don's see anything that would look like the \(\alpha=0\) event horizon of the Rindler frame. 
+Therefore we don't need a separate theory of gravity. Apparent gravitational forces are a by-product of the nature of spacetime, whatever it is.
 
-%equivalence of mass and energy
+A puzzling thing about gravity on Earth is that Earth is round. Every point of the surface of Earth seems to accelerate outwards from Earth's center. Gravity of the Rindler coordinate system can be made disappear by just transforming back to the original coordinates where \(\dd\tau^2=\dd t^2-\dd r^2\), but in the Rindler coordinates gravity points always to the same direction.
 
-\section{Spacetime curves}
+The answer is that the true geometry of spacetime is such that there is no spacetime coordinate system in which
+\begin{eqna}
+\dd\tau^2=\dd t^2-\dd x^2-\dd y^2-\dd z^2
+\end{eqna}
+would hold everywhere. More precisely, we can make gravity disappear in some small volume somewhere around Earth by choosing a freely falling coordinate system, but if we try to extend the coordinate frame to include larger portions of spacetime around Earth, effects of gravity will be unavoidable.
 
-\chapter{Our universe}
+The situation is analogous to the two-dimensional surface of Earth. We want to draw maps of the surface, and if possible, we want the Pythagorean theorem to hold, of course. It would be nice if we could calculate distances by \(\dd d^2=\dd x^2+\dd y^2\), in which \(x\) and \(y\) are our surface coordinates measured in kilometers, for example. We would want to be able to draw the map on flat paper so that \(x\) and \(y\) form a square grid and distances can be measured by a ruler.
 
-\section{Expanding universe}
+For any small region, like one tiny country, this can be done with reasonable accuracy. For a continent like Asia it's impossible, and maps that try to cover the whole Earth look ridiculous with no exception. The reason is that the surface of Earth is curved. Because of this analogy, also spacetime is said to be curved.
+
+\section{Motion in curved spacetime}
+
+Uniform motion, which in a curved coordinate system can be called freely falling motion, follows a straight worldline with a maximal length compared to other worldlines between the same endpoint events. In ordinary space a straight line has minimal length. The difference arises from the difference in the metric signature.
+
+In the Rindler metric worldlines of particles bend because clocks tick quicker at higher \(\alpha\) altitudes. A straight worldline can make itself longer by visiting higher values of \(\alpha\) and collect ticks with a higher frequency. On the other hand, navigating to higher \(\alpha\) requires high speeds, which slows the clock down. The actual worldline of a particle is a smooth arc that makes an optimal compromise between these two time dilation effects.
+
+At low values of \(\alpha\) even a small angle between a constant \(\alpha\) line and the worldline means high speed and low clock frequency. This makes the worldlines to reverse their curvature when they are close enough to \(\alpha=0\). The result is the more or less (exactly?) Gaussian-shaped worldlines that visit a high \(\alpha\) altitude and asyptotically approach \(\alpha=0\) in the past and the future.
+
+Freely falling observers do not experience anything in the Rindler frame, since the space is flat. Let's modify the Rindler metric a bit and write
+\begin{eqna}
+\dd\tau^2=\left(1+\alpha^2\right)\,\dd\theta^2-\dd\alpha^2,
+\end{eqna}
+and this time let \(\alpha\) range all the way down to \(-\infty\). Like the Rindler metric, this metric does not depend on \(\theta\), and therefore lines of constant \(\alpha\) are lines of constant acceleration, and neighboring lines of constant \(\alpha\) have constant radar distance.
+
+For large values of \(\alpha\) this metric approaches the Rindler meric. Worldlines arc towards \(\alpha=0\) and acceleration goes to zero as \(\alpha\rightarrow\infty\). For large negative \(\alpha\) the metric approaches the mirror image of the Rindler metric, and again world lines arc towards \(\alpha=0\). For \(\alpha\approx 0\) the metric differs from the Rindler metric. The coefficient of \(\dd t^2\) is not close to zero but close to one. Time does not freeze, and the constant line \(\alpha=0\) is timelike world line.
+
+Therefore worldlines oscillate around \(\alpha=0\), just like a particle would oscillate in a tunnel carved straight through the center of the Earth. The metric gives rise to a gravitational force that points everywhere towards the same point. This metric resembles the spacetime geometry around Earth, although is not exactly the same.
+
+Now imagine a finite-sized object sitting at \(\alpha=0\). It falls freely while it does not move, but its different parts experience forces that point towards its center. These forces compress the object, and if they are strong enough, the object gets crushed. The appearance of these tidal forces is a manifestation of curvature. Curvature is an absolute property of spacetime that cannot be made to disappear by changing perspective.
+
+We could calculate freely falling worldlines exactly by solving the variational equation
+\begin{eqna}
+\delta\,\tau=\delta\int\dd\tau=\int\delta\,\dd\tau=0
+\end{eqna}
+in which the variation is small and vanishes at the endpoint events. We will not do it here, but may do it later for a black hole.
 
 \chapter{Dynamics}
 
-\section{A bit of differential geometry}
+So far we have only discussed flow of time, relations of events and motion of particles in invented spacetimes. To figure out how spacetime curves, we need to do some guesswork and advanced mathematics.
 
-\section{Gravitational waves}
+\section{The action principle}
+
+Very often motion of a physical system can be described by writing down an action, which is a function that takes a whole motion as an argument and gives a number, and by stating that for a realistic motion the action has an extremal value with respect to all other motions restricted by some boundary conditions.
+
+The motion of a freely falling particle from the previous chapter was an example of this action principle: the action of a motion was chosen to be the worldline length, and the boundary conditions were that the compared worldlines should start and end at the same endpoint events.
+
+We can try to do the same for spacetime geometry. In the case of a particle the total action \(\tau\) was a sum of small pieces \(\dd\tau\) along the worldline. In the same fashion the action \(S_g\)of spacetime should be a sum of small pieces \(\dd S_g\) located everywhere around the considered spacetime volume.
+
+The first attempt is to just use the spacetime volume as the action. This does not work, because the only metric that extremizes spacetime volume is \(\dd\tau^2\equiv0\). Therefore we need some kind of absolute number, that is a number that does not depend on the observer's perspective in any way, that depends on the curvature. By integrating that number over spacetime, with the integration measure calculated from the metric, we would get a spacetime action function.
+
+There are not many such numbers. One is the so-called Ricci curvature \(R\). If we use it in constructing the action, solving the variational equation will yeld the equation \(R_{\alpha\beta}=0\), in which \(R_{\alpha\beta}\) is so-called Ricci tensor. The boundary conditions needed for the variation will be self-evident as one proceeds the calculation; in short, all surface terms should be thrown away.
+
+I will explain later what \(R\) and \(R_{\alpha\beta}\) are. The important, and somewhat miraculous thing is that \(R_{\alpha\beta}\) is the correct field equation for the geometry of empty spacetime. We may now figure out or at least sketch how we could figure out the geometry of spacetime outside Earth.
+
+First, spacetime seems to be spherically symmetric around Earth. Therefore, let's use polar \(r,\theta,\phi\) coordinates for the spatial part and assume that the metric does not depend on \(\theta\) or \(\phi\) (exept for the standard \(\sin^2\theta\) in the polar line element part). Second, gravitational forces around Earth seem to not change along time, so let's assume that the metric does not depend on \(t\). Third, let's anticipate that the coordinate system can be chosen so that there are no cross terms (for exampe a term of the form \(\dd t\,\dd r\)) in the metric. Based on these assumptions we write down an ansatz for the metric:
+\begin{eqna}
+\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2-r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+\end{eqna}
+Next we read from Wikipedia how to calculate \(R_{\alpha\beta}\) of the ansatz. The formula is awful. We set the Ricci tensor to zero and get some coupled differential equations for \(A(r)\) and \(B(r)\). We observe that they are solved by
+\begin{eqna}
+A(r)=1-\frac{r_s}{r}\andd B(r)=\frac{1}{A(r)}.
+\end{eqna}
+The metric we found is called the Schwartzchild metric. It describes the geometry of spacetime around planets, nonorotating black holes and many other astronomical bodies.
+
+To find out the spacetime geometry inside Earth, we need an equation for nonempty spacetime geometry. We can do this by extremizing the combined action of matter and spacetime. In other words, we solve the variational equation
+\begin{eqna}
+\delta\int(R+L)\,\dd^4\tau=0
+\end{eqna}
+in which \(L\) represents matter. Solving the equation will yeld
+\begin{eqna}
+R_{\alpha\beta}-\frac{1}{2}R\,g_{\alpha\beta}=T_{\alpha\beta},%pitääks olla jotai tyylii 8piG tms
+\end{eqna}
+an equation known as the Einstein field equation. The tensor \(g_{\alpha\beta}\) is so-called metric tensor and \(T_{\alpha\beta}\) energy-momentum tensor.
+
+Unfortunately the Einstein field equation is too difficult for us to solve inside earth. It can be done inside some kind of stars???.
+
+The variational equation and Einstein field equation are the global and local version of one single condition that spacetime geometry obeys. It is wrong to say that they dictate how spacetime geometry evolves, since evolution always happens as a function of one-dimensional time, and here we do not have any time at all before the field equation has done its work.
+
+This is reflected on how we found the Schwartschild solution: we did \emph{not} start from some initial conditions and then let the equations evolve them into the future. Instead we started from an ansatz of the whole spacetime and let the field equation fix the two functions of the ansatz.
+
+It is difficult to say what the variational equation or the Einstein field equation means. They are a condition that spacetime geometry and matter appear to obey. No more can be definitely said about them.
+
+\section{Some Riemannian geometry}
+
+%formation of black holes
+
+%wormholes
+
+%\section{A bit of differential geometry}
+
+%\section{Gravitational waves}
+
+\newpage
+
+%To put these together, acceleration starts from zero at \(\alpha=-\infty\). It increases until it has reached a maximum value at some \(\alpha<-1\) and starts to decrease. At \(\alpha=0\) acceleration is again zero. 
+
+Let's assume that freely falling motion has an extremal worldline length also when spacetime is curved. 
+
+We could calculate freely falling worldlines exactly by solving the variational equation
+\begin{eqna}
+\delta\tau=\delta\int\dd\tau=\int\delta\,\der{\tau}{\sigma}\,\dd\sigma=0
+\end{eqna}
+in which \(\sigma\) is a worldline parameter and the variation is small and vanishes at the endpoint events.
+
+Let's take for example the metric
+\begin{eqna}
+\dd\tau^2=A(t,r)\,\dd t^2-B(t,r)\,\dd r^2.
+\end{eqna}
+We have
+\begin{eqna}
+\delta\tau=\int\delta\dd\tau
+\end{eqna}
+
+We can therefore speculate with any metrics without worrying about wether 
+
+When large portions of Earth must be covered, polar coordinates \(\theta\) and \(\phi\) are usually used. For them
+\begin{eqna}
+\dd d^2=r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right),
+\end{eqna}
+where \(r\) is the radius of Earth. Because the spacetime around Earth seems to be spherically symmetric, we should use polar coordinates for spacetime. Because gravitational effects on Earth seem to be independent of time, we should expect the spacetime metric to be independent of time.
+
+We may now write down an ansatz for the spacetime metric around Earth:
+\begin{eqna}
+\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2-r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+\end{eqna}
+
+%For long humans have wanted to draw maps 
+
+%The only working answer to this question is that 
+%
+%One imaginable possibility is that Earth is actually expanding with an accelerating pace, but we know that the distances between cities have remained constant for years.
+
+
+%Is Earth accelerating into one direction, and I (and probably also you) happen to live on a point where the accelerati
+
+%On Earth we don's see anything that would look like the \(\alpha=0\) event horizon of the Rindler frame. 
+
+%equivalence of mass and energy
+
+\chapter{Our universe}
+
+
+\section{Expanding universe}
+
 
 \section{Field equations}
 
 \chapter{Black holes}
 
 \section{The Schwartzchild solution}
+
+motion around black hole
+
+how black hole looks like
 
 \section{Black holes merge}
 
