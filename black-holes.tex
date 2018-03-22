@@ -452,7 +452,13 @@ would hold everywhere. More precisely, we can make gravity disappear in some sma
 
 The situation is analogous to the two-dimensional surface of Earth. We want to draw maps of the surface, and if possible, we want the Pythagorean theorem to hold, of course. It would be nice if we could calculate distances by \(\dd d^2=\dd x^2+\dd y^2\), in which \(x\) and \(y\) are our surface coordinates measured in kilometers, for example. We would want to be able to draw the map on flat paper so that \(x\) and \(y\) form a square grid and distances can be measured by a ruler.
 
-For any small region, like one tiny country, this can be done with reasonable accuracy. For a continent like Asia it's impossible, and maps that try to cover the whole Earth look ridiculous with no exception. The reason is that the surface of Earth is curved. Because of this analogy, also spacetime is said to be curved.
+For any small region, like one tiny country, this can be done with reasonable accuracy. For a continent like Asia it's impossible, and maps that try to cover the whole Earth look ridiculous with no exception. Such maps typically use polar coordinates \(\theta,\phi\) for which
+\begin{eqna}
+\dd d^2=r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right)
+\end{eqna}
+in which \(r\) is the radius of Earth. The polar coordinates look like square-gridded \(x,y\) coordinates only if \(\theta\approx0\), that is, on the equator.
+
+The reason why mapping Earth is difficult is that the surface of Earth is curved. Because of this analogy, also spacetime is said to be curved.
 
 \section{Motion in curved spacetime}
 
@@ -462,7 +468,7 @@ In the Rindler metric worldlines of particles bend because clocks tick quicker a
 
 At low values of \(\alpha\) even a small angle between a constant \(\alpha\) line and the worldline means high speed and low clock frequency. This makes the worldlines to reverse their curvature when they are close enough to \(\alpha=0\). The result is the more or less (exactly?) Gaussian-shaped worldlines that visit a high \(\alpha\) altitude and asyptotically approach \(\alpha=0\) in the past and the future.
 
-Freely falling observers do not experience anything in the Rindler frame, since the space is flat. Let's modify the Rindler metric a bit and write
+Freely falling observers do not experience anything in the Rindler frame, since the spacetime it describes is flat. Let's modify the Rindler metric a bit and write
 \begin{eqna}
 \dd\tau^2=\left(1+\alpha^2\right)\,\dd\theta^2-\dd\alpha^2,
 \end{eqna}
@@ -482,51 +488,192 @@ in which the variation is small and vanishes at the endpoint events. We will not
 
 \chapter{Dynamics}
 
-So far we have only discussed flow of time, relations of events and motion of particles in invented spacetimes. To figure out how spacetime curves, we need to do some guesswork and advanced mathematics.
+So far we have only discussed flow of time, relations of events and motion of particles in invented spacetimes. To figure out how real spacetime curves, we need to do some guesswork and advanced mathematics.
 
 \section{The action principle}
 
-Very often motion of a physical system can be described by writing down an action, which is a function that takes a whole motion as an argument and gives a number, and by stating that for a realistic motion the action has an extremal value with respect to all other motions restricted by some boundary conditions.
+Very often motion of a physical system can be described by writing down an action \(S\), which is a function that takes a whole motion as its argument and produces a number, and by stating that for a realistic motion the action has an extremal value with respect to all other motions restricted by some boundary conditions.
 
-The motion of a freely falling particle from the previous chapter was an example of this action principle: the action of a motion was chosen to be the worldline length, and the boundary conditions were that the compared worldlines should start and end at the same endpoint events.
+The motion of a freely falling particle from the previous chapter is an example of this action principle: the action of a motion was chosen to be the worldline length, and the boundary conditions were that the compared worldlines should start and end at the same endpoint events.
 
-We can try to do the same for spacetime geometry. In the case of a particle the total action \(\tau\) was a sum of small pieces \(\dd\tau\) along the worldline. In the same fashion the action \(S_g\)of spacetime should be a sum of small pieces \(\dd S_g\) located everywhere around the considered spacetime volume.
+We can try to use the action principle for spacetime geometry. In the case of a particle the total action \(\tau\) is a sum of small pieces of action \(\dd\tau\) along the worldline. In the same fashion the action of spacetime should probably be a sum of small pieces of action located every event in the considered spacetime volume.
 
-The first attempt is to just use the spacetime volume as the action. This does not work, because the only metric that extremizes spacetime volume is \(\dd\tau^2\equiv0\). Therefore we need some kind of absolute number, that is a number that does not depend on the observer's perspective in any way, that depends on the curvature. By integrating that number over spacetime, with the integration measure calculated from the metric, we would get a spacetime action function.
+The first attempt is to just use the spacetime volume as the action, just like we used spacetime length for the action of a particle. This does not work, because the only metric that extremizes spacetime volume is \(\dd\tau^2\equiv0\). The difference is that the particle moves in a background metric---the spacetime metric---but the spacetime metric itself doesn't.
 
-There are not many such numbers. One is the so-called Ricci curvature \(R\). If we use it in constructing the action, solving the variational equation will yeld the equation \(R_{\alpha\beta}=0\), in which \(R_{\alpha\beta}\) is so-called Ricci tensor. The boundary conditions needed for the variation will be self-evident as one proceeds the calculation; in short, all surface terms should be thrown away.
+What we need is some kind of absolute number that measures the curvature. By integrating that number over spacetime, with the integration measure calculated from the metric, we get a potentially useful spacetime action function.
 
-I will explain later what \(R\) and \(R_{\alpha\beta}\) are. The important, and somewhat miraculous thing is that \(R_{\alpha\beta}\) is the correct field equation for the geometry of empty spacetime. We may now figure out or at least sketch how we could figure out the geometry of spacetime outside Earth.
+\section{Some Riemannian geometry}
 
-First, spacetime seems to be spherically symmetric around Earth. Therefore, let's use polar \(r,\theta,\phi\) coordinates for the spatial part and assume that the metric does not depend on \(\theta\) or \(\phi\) (exept for the standard \(\sin^2\theta\) in the polar line element part). Second, gravitational forces around Earth seem to not change along time, so let's assume that the metric does not depend on \(t\). Third, let's anticipate that the coordinate system can be chosen so that there are no cross terms (for exampe a term of the form \(\dd t\,\dd r\)) in the metric. Based on these assumptions we write down an ansatz for the metric:
+In order to measure curvature, we need to study differential geometry of Riemannian manifolds. Let's start from \(x^\alpha\) \((\alpha=0,1,2,3)\) coordinates for which
 \begin{eqna}
-\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2-r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+\dd\tau^2=\left(\dd x^0\right)^2-\left(\dd x^1\right)^2-\left(\dd x^2\right)^2-\left(\dd x^3\right)^2.
 \end{eqna}
-Next we read from Wikipedia how to calculate \(R_{\alpha\beta}\) of the ansatz. The formula is awful. We set the Ricci tensor to zero and get some coupled differential equations for \(A(r)\) and \(B(r)\). We observe that they are solved by
+We may write this as
 \begin{eqna}
-A(r)=1-\frac{r_s}{r}\andd B(r)=\frac{1}{A(r)}.
+\dd\tau^2=\sum_{\alpha=0}^3\sum_{\beta=0}^3\,g_{\alpha\beta}\,\dd x^\alpha\dd x^\beta\doteq g_{\alpha\beta}\,\dd x^\alpha\dd x^\beta,
 \end{eqna}
-The metric we found is called the Schwartzchild metric. It describes the geometry of spacetime around planets, nonorotating black holes and many other astronomical bodies.
+in which we use the summation convention and the numbers \(g_{\alpha\beta}\) are the elements of a diagonal matrix with the numbers \(1,-1,-1,-1\) on the diagonal. The summation convention is that whenever there is a repeated index in an expression, a summation over it is implied, 
 
-To find out the spacetime geometry inside Earth, we need an equation for nonempty spacetime geometry. We can do this by extremizing the combined action of matter and spacetime. In other words, we solve the variational equation
+If we now change to an arbitrary coordinate system \(\tilde{x}^\alpha\), a simple application of the chain rule gives
 \begin{eqna}
-\delta\int(R+L)\,\dd^4\tau=0
+\dd\tau^2=g_{\alpha\beta}\,\pder{x^\alpha}{\tilde{x}^\gamma}\dd\tilde{x}^\gamma\,\pder{x^\beta}{\tilde{x}^\delta}\dd\tilde{x}^\delta=\tilde{g}_{\alpha\beta}\,\dd \tilde{x}^\alpha\dd \tilde{x}^\beta,
 \end{eqna}
-in which \(L\) represents matter. Solving the equation will yeld
+in which
+\begin{eqna}
+\tilde{g}_{\alpha\beta}=\pder{x^\gamma}{\tilde{x}^\alpha}\,\pder{x^\delta}{\tilde{x}^\beta}\,g_{\gamma\delta}.
+\end{eqna}
+This is obvious: if we change coordinates, we must also transform the numbers \(g_{\alpha\beta}\) in an appropriate way. When we transformed into the Rindler coordinates, we first had had \(x^0=t\) and \(x^1=r\) and \(g_{00}=1\), \(g_{11}=-1\), \(g_{01}=g_{10}=0\), and after transforming we had \(\tilde{x}^0=\theta\), \(\tilde{x}^1=\alpha\), \(\tilde{g}_{00}=\alpha\), \(\tilde{g}_{11}=-1\) and \(\tilde{g}_{01}=\tilde{g}_{10}=0\).
+
+The separation \(\dd x^\alpha\) of two nearby events is essentially a small arrow located somewhere in spacetime. All small separations located at the same event form a vector space, called the tanget space of the event. The set of numbers \(g_{\alpha\beta}\) can be thought of as a bilinear map that takes two vectors from the tangent space and produces a number.
+
+Such linear maps are called tensors, and the tensor \(g_{\alpha\beta}\) is called a metric tensor. All linear maps are specific to the vector spacd they act in, and if we say we have a tensor, we also have to specify the event at which it is located.
+
+The metric tensor is said to define an inner product of two vectors. It is symmetric in the indices \(_{\alpha\beta}\); in other words \(g_{\alpha\beta}=g_{\beta\alpha}\). The worldline element \(\dd\tau^2\) is calculated by taking the inner product of \(\dd x^\alpha\) with itself.
+
+Vectors located at different events in spacetime cannot be directly added or compared, because they do not live in the same vector spaces. For this reason it's not obvious what a ``derivative of a vector'' would mean, for example. Anyway, we can paraller transport vectors from tangent space to tangent space and then add or compare them.
+
+Parallel transport means moving the vector without changing its direction or length. In a flat space it is trivial. It does not depend on the path along which it is performed, and if we parallel transport a vector back into its own tangent space, it comes back as unchanged.
+
+In curved spaces the situation is different. Take the surface of Earth as an example. If we have somewhere at the equator vector that points up North, parallel transport it straight to the North pole, and then parallel transport it back to the equator along a straigh line that makes a right angle with the first line of parallel transport, we get a vector that is parallel to the equator. If we now parallel transport it back to the original point along the equator, we find that it has got rotated by 90 degrees.
+
+Parallel transport of a vector can be rigorously defined and equations for how its components change along the transport can be derived, yet we are not going to do that. For our purposes it is enough to understand that the concept is definite and unambiguous.
+
+Curvature of spacetime can be measured by studing how a vector changes by parallel transporting it along a loop that comes back to itself. Let's take three separation vectors, \(\dd x^\alpha\), \(\dd y^\alpha\) and \(\dd z^\alpha\), and parallel transport \(\dd z^\alpha\) first by \(\dd x^\alpha\), then by \(\dd y^\alpha\), and then back by \(-\dd x^\alpha\) and \(-\dd y^\alpha\). The linear approximation to how \(\dd z^\alpha\) changes can be written as
+\begin{eqna}
+\dd z^\alpha\rightarrow\dd z^\alpha + R^\alpha_{\phantom{\alpha}\beta\gamma\delta}\,\dd z^\beta\dd x^\gamma\dd y^\delta
+\end{eqna}
+with \(R^\alpha_{\phantom{\alpha}\beta\gamma\delta}\) a tensor that takes three vectors and produces another vector.
+
+The tensor \(R^\alpha_{\phantom{\alpha}\beta\gamma\delta}\) is called Riemann tensor. It encapsulates all the important local curvature properties of spacetime, and is together with the metric the most important tensor of Riemannian geometry.
+
+In order to have an action for gravity, we need to turn the Riemann tensor into a number. We can remove two indices from it by setting \(\alpha=\beta\) in \(R^\alpha_{\phantom{\alpha}\beta\gamma\delta}\) and summing over it. We get
+\begin{eqna}
+R^\beta_{\phantom{\beta}\beta\gamma\delta}\doteq R_{\gamma\delta}.
+\end{eqna}
+It can be shown that this ``contraction'' or tracing of a lower-upper index pair produces a new tensor that takes two vectors as arguments and produces a number. More precisely, it does not matter in which coordinates we perform the contraction; if we contract in one coordinate system and then change the coordinates, we get the same numbers \(R_{\gamma\delta}\) as we would if we first changed the coordinates and then performed the contraction.
+
+The tensor \(R_{\gamma\delta}\) is called Ricci tensor. We would like to turn Ricci tensor into a number, but contracting two lower indices do not produce tensor in any reasonable way. We must first raise one of the indices somehow.
+
+This can be done by defining symmetric upper-index version of the metric by the condition \(g^{\alpha\beta}g_{\beta\gamma}=\delta^{\alpha}_{\phantom{\alpha}\gamma}\), in which \(\delta^{\alpha}_{\phantom{\alpha}\gamma}\) is the Kronecker delta, that is, the unit tensor that does nothing. In other words, if \(g^{\alpha\beta}\) is used for rising an index, then the same index can be lowerd back by \(g_{\alpha\beta}\).
+
+Now we contract the indices of the Ricci tensor and get
+\begin{eqna}
+g^{\alpha\beta}R_{\alpha\beta}\doteq R.
+\end{eqna}
+This is a number called Ricci scalar.
+
+ %We can also form other scalars out of the Riemann tensor, for example \(R^\alpha_{\phantom{\alpha}\beta\gamma\mu}R^\beta_{\phantom{\beta}\alpha\delta\nu}g^{\gamma\delta}g^{\mu\nu}\), but the Ricci scalar is (have to figure out why) the one we should use for the spacetime action.
+
+\section{Einstein field equation}
+
+We can use the Ricci scalar in spacetime action. If spacetime is not empty, also the Lagrangian \(\mathcal{L}\) of matter must be taken into consideration. The total action of spacetime filled with matter is a spacetime integral of \(R+\mathcal{L}\).
+
+Volume arises from distance, and therefore the integration measure \(\dd^2\tau\) must be calculated from the metric. It can be shown that in coordinates \(x^\alpha\) the correct integration measure is
+\begin{eqna}
+\sqrt{|g|}\,\dd x^0\dd x^1\dd x^2\dd x^3\doteq\sqrt{|g|}\,\dd^4x
+\end{eqna}
+in which \(g\) is the determinant of the metric.
+
+The complete action is now
+\begin{eqna}
+\int_\mathcal{V}(R+\mathcal{L})\sqrt{|g|}\,\dd^4x\doteq S
+\end{eqna}
+in which \(\mathcal{V}\) is the region of spacetime we integrate over.
+
+%The term \(\sqrt{|g|}\) couples curvature to matter. 
+
+To extremize this, we calulate the difference of the integral's value for two slightly different metrics, but if we do not restrict the metrics in any way, an extremum value does not exist. If we take both metrics to smoothly become the same at the border of the integration region \(\mathcal{V}\), an extremum value can be found.
+
+In practice we compare \(g_{\alpha\beta}\) to \(g_{\alpha\beta}+\delta g_{\alpha\beta}\), in which \(\delta g_{\alpha\beta}\) is the small difference of our metrics, and calculate \(\delta S\) to first order in \(\delta g_{\alpha\beta}\). All surface terms vanish because \(\delta g_{\alpha\beta}\) vanishes smoothly at the border of \(\mathcal{V}\).
+
+
+
+
+
+
+The result of the calculation will be that metric \(g_{\alpha\beta}\) corresponds to an extremum value of spacetime action if and only if the Einstein field equation holds at every point in \(\mathcal{V}\). The Einstein field equation reads
 \begin{eqna}
 R_{\alpha\beta}-\frac{1}{2}R\,g_{\alpha\beta}=T_{\alpha\beta},%pitääks olla jotai tyylii 8piG tms
 \end{eqna}
-an equation known as the Einstein field equation. The tensor \(g_{\alpha\beta}\) is so-called metric tensor and \(T_{\alpha\beta}\) energy-momentum tensor.
+in which
+\begin{eqna}
+T_{\alpha\beta}=\frac{-2}{\sqrt{|g|}}\frac{\delta(\sqrt{|g|}\,\mathcal{L})}{\delta g_{\alpha\beta}}
+\end{eqna}
+is so-called energy-momentum tensor.
 
-Unfortunately the Einstein field equation is too difficult for us to solve inside earth. It can be done inside some kind of stars???.
+In vacuum (and with zero cosmological constant) \(T_{\alpha\beta}=0\). Einstein field equation becomes
+\begin{eqna}
+R_{\alpha\beta}=\frac{1}{2}R\,g_{\alpha\beta}.
+\end{eqna}
+Multiplying by \(g^{\alpha\beta}\) and contracting both indices gives \(R=2\,R\), which implies \(R=0\). Therefore the Einstein field equation for vacuum can be written as just \(R_{\alpha\beta}=0\).
 
-The variational equation and Einstein field equation are the global and local version of one single condition that spacetime geometry obeys. It is wrong to say that they dictate how spacetime geometry evolves, since evolution always happens as a function of one-dimensional time, and here we do not have any time at all before the field equation has done its work.
 
-This is reflected on how we found the Schwartschild solution: we did \emph{not} start from some initial conditions and then let the equations evolve them into the future. Instead we started from an ansatz of the whole spacetime and let the field equation fix the two functions of the ansatz.
 
-It is difficult to say what the variational equation or the Einstein field equation means. They are a condition that spacetime geometry and matter appear to obey. No more can be definitely said about them.
 
-\section{Some Riemannian geometry}
+%with \delta g_{\alpha\beta}
+
+
+
+
+
+
+
+
+
+
+
+%\begin{eqna
+
+
+
+
+
+\newpage
+There are not many such numbers. One is the so-called Ricci curvature scalar \(R\). If we use it, solving the variational equation will yeld \(R_{\alpha\beta}=0\), in which \(R_{\alpha\beta}\) is so-called Ricci tensor. I will explain in the next section what \(R\) and \(R_{\alpha\beta}\) are. The important, and rather miraculous thing is that \(R_{\alpha\beta}=0\) is the correct field equation for the geometry of empty spacetime.
+ %The boundary conditions needed for the variation will be self-evident as one proceeds the calculation; in short, all surface terms should be thrown away.
+
+
+We may now sketch how we could figure out the geometry of spacetime outside Earth. First, spacetime seems to be spherically symmetric around Earth. Therefore, let's use spherical \(r,\theta,\phi\) coordinates as the spacelike coordinates and assume that the metric does not depend on \(\theta\) or \(\phi\) (exept for the standard \(\sin^2\theta\) in the spherical line element part). Second, gravitational forces around Earth seem to not change along time, so let's assume that the metric does not depend on the timelike coordinate \(t\). Third, let's anticipate that the coordinate system can be chosen so that there are no cross terms (for exampe a term of the form \(\dd t\,\dd r\)) in the metric.
+
+Based on these assumptions we write down an ansatz for the metric:
+\begin{eqna}
+\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2-r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+\end{eqna}
+Next we read from Wikipedia how to calculate \(R_{\alpha\beta}\) of the ansatz. The formula is awful. We set \(R_{\alpha\beta}\) to zero and get some coupled differential equations for \(A(r)\) and \(B(r)\). We solve them and get
+\begin{eqna}
+A(r)=1-\frac{r_s}{r}\andd B(r)=\frac{1}{A(r)}
+\end{eqna}
+with \(r_s\) a positive-valued parameter. Putting everything together we have
+\begin{eqna}
+\dd\tau^2=\left(1-\frac{r_s}{r}\right)\dd t^2-\frac{1}{1-\frac{r_s}{r}}\dd r^2-r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+\end{eqna}
+This metric is called Schwartzchild metric. It describes the geometry of spacetime around planets, nonorotating black holes and many other astronomical bodies.
+
+
+To find out the spacetime geometry inside Earth, we need an equation for nonempty spacetime geometry. We can do this by extremizing the combined action of matter and spacetime. In other words, we solve the variational equation
+\begin{eqna}
+\delta\int(R+\mathcal{L})\,\dd^4\tau=0
+\end{eqna}
+in which \(\mathcal{L}\) is somehow calculated from local motion of matter in spacetime. Solving the equation will yeld
+\begin{eqna}
+R_{\alpha\beta}-\frac{1}{2}R\,g_{\alpha\beta}=T_{\alpha\beta},%pitääks olla jotai tyylii 8piG tms
+\end{eqna}
+an equation known as the Einstein field equation. Tensors \(g_{\alpha\beta}\) and \(T_{\alpha\beta}\) are so-called metric tensor and energy-momentum tensor. Unfortunately the Einstein field equation is too difficult for us to solve inside Earth.
+
+% It can be done inside some kind of stars???.
+
+The variational equation and the Einstein field equation are the global and local version of one single condition that the spacetime geometry obeys. It is wrong to say that they dictate how spacetime geometry evolves, since evolution happens as a function of one-dimensional time, and here we do not have any time at all before the field equation has done its work.
+
+This is reflected on how we found the Schwartschild solution: we did \emph{not} start from some initial conditions and then let the equations evolve them into the future. Instead we started from an ansatz for the whole spacetime geometry and let the field equation fix the two unknown functions we had left in the ansatz.
+
+It is difficult to say what the variational equation or the Einstein field equation means. They are a condition that spacetime geometry and matter obey. No more can be definitely said about them.
+\(g_{\theta\theta}\)
+
+
+The above
+
+
+Differential geometry is challenging---either extremely messy or extremely abstract---
 
 %formation of black holes
 
@@ -536,7 +683,6 @@ It is difficult to say what the variational equation or the Einstein field equat
 
 %\section{Gravitational waves}
 
-\newpage
 
 %To put these together, acceleration starts from zero at \(\alpha=-\infty\). It increases until it has reached a maximum value at some \(\alpha<-1\) and starts to decrease. At \(\alpha=0\) acceleration is again zero. 
 
