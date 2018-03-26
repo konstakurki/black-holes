@@ -462,13 +462,7 @@ The reason why mapping Earth is difficult is that the surface of Earth is curved
 
 \section{Motion in curved spacetime}
 
-Uniform motion, which in a curved coordinate system can be called freely falling motion, follows a straight worldline with a maximal length compared to other worldlines between the same endpoint events. In ordinary space a straight line has minimal length. The difference arises from the difference in the metric signature.
-
-In the Rindler metric worldlines of particles bend because clocks tick quicker at higher \(\alpha\) altitudes. A straight worldline can make itself longer by visiting higher values of \(\alpha\) and collect ticks with a higher frequency. On the other hand, navigating to higher \(\alpha\) requires high speeds, which slows the clock down. The actual worldline of a particle is a smooth arc that makes an optimal compromise between these two time dilation effects.
-
-At low values of \(\alpha\) even a small angle between a constant \(\alpha\) line and the worldline means high speed and low clock frequency. This makes the worldlines to reverse their curvature when they are close enough to \(\alpha=0\). The result is the more or less (exactly?) Gaussian-shaped worldlines that visit a high \(\alpha\) altitude and asyptotically approach \(\alpha=0\) in the past and the future.
-
-Freely falling observers do not experience anything in the Rindler frame, since the spacetime it describes is flat. Let's modify the Rindler metric a bit and write
+Freely falling observers do not experience any forces in the Rindler frame, since the spacetime it describes is flat. Let's modify the Rindler metric a bit and write
 \begin{eqna}
 \dd\tau^2=\left(1+\alpha^2\right)\,\dd\theta^2-\dd\alpha^2,
 \end{eqna}
@@ -480,11 +474,125 @@ Therefore worldlines oscillate around \(\alpha=0\), just like a particle would o
 
 Now imagine a finite-sized object sitting at \(\alpha=0\). It falls freely while it does not move, but its different parts experience forces that point towards its center. These forces compress the object, and if they are strong enough, the object gets crushed. The appearance of these tidal forces is a manifestation of curvature. Curvature is an absolute property of spacetime that cannot be made to disappear by changing perspective.
 
-We could calculate freely falling worldlines exactly by solving the variational equation
+Uniform, freely falling motion follows a worldline with a maximal length compared to other worldlines between the same endpoint events. In coordinates in which \(\dd\tau^2=\dd t^2-\dd r^2\) such a wordline appears as a straight line. Such lines of extremal length are called geodesics. In spacetime timelike geodesics have maximal length, while in ordinary space any geodesic has minimal length. The difference arises from the difference in the metric signature.
+
+In the Rindler metric worldlines of particles bend because clocks tick quicker at higher \(\alpha\) altitudes. A straight worldline can make itself longer by visiting higher values of \(\alpha\) and collect ticks with a higher frequency. On the other hand, navigating to higher \(\alpha\) requires high speeds, which slows the clock down. The actual worldline of a particle is a smooth arc that makes an optimal compromise between these two time dilation effects.
+
+At low values of \(\alpha\) even a small angle between a constant \(\alpha\) line and the worldline means high speed and low clock frequency. This makes the worldlines to reverse their curvature when they are close enough to \(\alpha=0\). The result is the more or less (exactly?) Gaussian-shaped worldlines that visit a high \(\alpha\) altitude and asyptotically approach \(\alpha=0\) in the past and the future.
+
+We may calculate freely falling worldlines by solving the variational equation
 \begin{eqna}
-\delta\,\tau=\delta\int\dd\tau=\int\delta\,\dd\tau=0
+\delta\,\tau=\delta\int\dd\tau=\int\delta\dd\tau=\int\delta\der{\tau}{\sigma}\,\dd\sigma,
 \end{eqna}
-in which the variation is small and vanishes at the endpoint events. We will not do it here, but may do it later for a black hole.
+in which \(\sigma\) is a variable that parameterizes the worldine, for small variations that vanish at the endpoint events.
+
+Let's solve the equation generally for the metric
+\begin{eqna}
+\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2
+\end{eqna}
+which includes freely falling, Rindler and our modified Rindler metrics as special cases. The solution will be two functions \(t(\sigma)\) and \(r(\sigma)\), but we can use \(t\) as the parameter, which makes the solution just one function \(r(t)\). We have
+\begin{eqna}
+S=\int_{t_i}^{t_f}\der{\tau}{t}\,\dd t=\int_{t_i}^{t_f}L(r,\tfrac{\dd r}{\dd t})\,\dd t
+\end{eqna}
+with
+\begin{eqna}
+L(r,\tfrac{\dd r}{\dd t})=\der{\tau}{t}=\der{}{t}\sqrt{A\,\dd t^2-B\,\dd r^2}=\sqrt{A-B\left(\der{r}{t}\right)^2}.
+\end{eqna}
+If \(A(r)\ll B(r)\,\der{r}{t}\)??? which corresponds to particles moving slowly in our coordinate system, we can write
+\begin{eqna}
+L(r,\tfrac{\dd r}{\dd t})=A^2\sqrt{1-\left(\sqrt{\frac{B}{A}}\der{r}{t}\right)^2}\approx\sqrt{A}-\frac{1}{2}\frac{B}{A}\left(\der{r}{t}\right)^2.
+\end{eqna}
+This is (minus) the Lagrangian of a Newtonian particle of mass \(\frac{B}{A}\) moving in potential \(\sqrt{A(r)}\). We can think of \(\sqrt{A(r)}\) as a gravitational potential that gives rise to gravitational forces. In our modified Rindler metric the world lines oscillate around \(\alpha=0\) because it is a local minimum of gravitational potential.
+
+To calculate the equation of motion, we change \(r(t)\) to \(r(t)+\delta r(t)\), in which \(\delta r(t)\) is a small variation for which \(\delta r(t_i)=\delta r(t_f)=0\). We get
+\begin{eqna}
+\delta S=\int_{t_i}^{t_f}\delta L\,\dd t=\int_{t_i}^{t_f}\left(\frac{\delta L}{\delta r}\,\delta r+\frac{\delta L}{\delta\der{r}{t}}\,\delta\der{r}{t} \right)\,\dd t.
+\end{eqna}
+Because
+\begin{eqna}
+\delta\der{r}{t}=\der{r+\delta r}{t}-\der{r}{t}=\der{\delta r}{t},
+\end{eqna}
+we have
+\begin{eqna}
+\delta S=\int_{t_i}^{t_f}\left(\frac{\delta L}{\delta r}\,\delta r+\frac{\delta L}{\delta\der{r}{t}}\,\der{\delta r}{t}\right)\,\dd t.
+\end{eqna}
+We can write
+\begin{eqna}
+\frac{\delta L}{\delta\der{r}{t}}\,\der{\delta r}{t}=\der{}{t}\left(\frac{\delta L}{\delta\der{r}{t}}\,\delta r\right)-\der{}{t}\left(\frac{\delta L}{\delta\der{r}{t}}\right)\,\delta r
+\end{eqna}
+and therefore
+\begin{eqna}
+\delta S=\int_{t_i}^{t_f}\left(\frac{\delta L}{\delta r}\,\delta r+\der{}{t}\left(\frac{\delta L}{\delta\der{r}{t}}\,\delta r\right)-\der{}{t}\left(\frac{\delta L}{\delta\der{r}{t}}\right)\,\delta r\right)\,\dd t.
+\end{eqna}
+The middle term is a total time derivative, and thus gives contribution only at the endpoints. The contribution is proportional to \(\delta r\), and since it vanishes at the endpoints, the contribution is zero. We are left with % This reflects the fact that even a geodesic doesn't extremize length if the endpoints aren't fixed.
+\begin{eqna}
+\delta S=\int_{t_i}^{t_f}\left(\frac{\delta L}{\delta r}-\der{}{t}\left(\frac{\delta L}{\delta\der{r}{t}}\right)\right)\,\delta r\,\dd t.
+\end{eqna}
+Since this holds for any small \(\delta r(t)\) that vanishes at the endpoints, for \(\delta =0\) to hold the stuff inside the parenthesis must vanish at every point of the worldline. We are left with the Euler-Lagrange equation
+\begin{eqna}
+\frac{\delta L}{\delta r}-\der{}{t}\left(\frac{\delta L}{\delta\der{r}{t}}\right)=0.
+\end{eqna}
+
+For
+\begin{eqna}
+L(r,\tfrac{\dd r}{\dd t})=\sqrt{A(r)-B(r)\left(\der{r}{t}\right)^2}
+\end{eqna}
+we get
+
+joo joo joo
+
+%Let's do that generally for the metric
+%\begin{eqna}
+%\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2
+%\end{eqna}
+%which includes freely falling, Rindler and our modified Rindler metrics as special cases. We have
+%\begin{eqnb}
+%\tau&=&\int\der{\tau}{\sigma}\,\dd\sigma\\
+%    &=&\int\frac{\sqrt{A\,\dd t^2-B\,\dd r^2}}{\dd\sigma}\,\dd\sigma\\
+%    &=&\int\sqrt{A\,\left(\der{t}{\sigma}\right)^2-B\,\left(\der{r}{\sigma}\right)^2}\,\dd\sigma
+%\end{eqnb}
+%where \(\sigma\) is a variable that parameterizes the worldine. Now, if we change \(t(\sigma)\) and \(r(\sigma)\) to \(t(\sigma)+\dd t(\sigma)\) and \(r(\sigma)+\dd r(\sigma)\), we get
+%\begin{eqnb}
+%\delta\tau&=&\int\left(\frac{\delta}{\delta t}\der{\tau}{\sigma}\,\delta t+\frac{\delta}{\delta r}\der{\tau}{\sigma}\,\delta r\right)\,\dd\sigma\\
+%          &=&\frac{\delta}{\delta t}\int\sqrt{A\,\left(\der{t}{\sigma}\right)^2-B\,\left(\der{r}{\sigma}\right)^2}\,\delta t\,\dd\sigma
+%\end{eqnb}
+
+\section{Spacetime around Earth}
+
+Common knowledge gives us many hints about the real geometry of spacetime around Earth. First, all gravitational effects seem to be spherically symmetric around Earth, so let's use spherical \(r,\theta,\phi\) coordinates as the spacelike coordinates and assume that the metric does not depend on \(\theta\) or \(\phi\) (except for the standard \(\sin^2\theta\) in the spherical line element part). Second, gravitational forces around Earth seem to not change along time, so let's assume that the metric does not depend on the timelike coordinate \(t\).
+
+Based on these assumptions and the fact that the line element is always quadratic in the coordinate differentials, we write down an ansatz for the metric:
+\begin{eqnb}
+\dd\tau^2&=&A(r)\,\dd t^2-B(r)\,\dd r^2\\
+          &&-C(r)\dd r\,\dd t-D(r)\,r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+\end{eqnb}
+We can simplify the metric by choosing the coordinate system wisely. By changing \(t\rightarrow t(t,r)\) and \(r\rightarrow r(t,r)\) appropriately, we can make \(C(r)\equiv 0\) and \(D(r)\equiv 1\), or alternatively??, \(C(r)\equiv 0\) and \(B(r)\equiv 1\). In the first case we have
+\begin{eqna}
+\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2-\,r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+\end{eqna}
+
+The further we are from Earth, the 
+
+
+ Third, let's anticipate that the coordinate system can be chosen so that there are no cross terms (for exampe a term of the form \(\dd t\,\dd r\)) in the metric.
+
+
+
+
+
+Next we read from Wikipedia how to calculate \(R_{\alpha\beta}\) of the ansatz. The formula is awful. We set \(R_{\alpha\beta}\) to zero and get some coupled differential equations for \(A(r)\) and \(B(r)\). We solve them and get
+\begin{eqna}
+A(r)=1-\frac{r_s}{r}\andd B(r)=\frac{1}{A(r)}
+\end{eqna}
+with \(r_s\) a positive-valued parameter. Putting everything together we have
+\begin{eqna}
+\dd\tau^2=\left(1-\frac{r_s}{r}\right)\dd t^2-\frac{1}{1-\frac{r_s}{r}}\dd r^2-r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+\end{eqna}
+This metric is called Schwartzchild metric. It describes the geometry of spacetime around planets, nonorotating black holes and many other astronomical bodies.
+
+
+
+
 
 \chapter{Dynamics}
 
