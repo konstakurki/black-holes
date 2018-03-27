@@ -146,9 +146,39 @@
 %\renewcommand{\circc}{2\pi}
 
 \begin{document}
-
+\frontmatter
+\chapter{Prologue: The Shape Of Earth}
 %\tableofcontents
 
+Some people think that Earth is round while some think it is flat. Who is right? Obviously, the scientific community, schools and probably your parents support the theory of round Earth, which is a fair reason for believing that maybe Earth really is round.
+
+Anyway, believing is not fun, and it's definitely not what theoretical physicists should do, no matter how credible sources we are talking about. Theoretical physics means understanding. Being right and knowing the truth is not the point, and understanding is not a means to achieve the truth, whatever that would mean; instead, it is the goal itself.
+
+So let me explain why I think, and not believe, that Earth is round, without caring about whether I'm right or wrong about that. First, let's be clear about what we're talking about. It's not the shape of ground: since there are mountains and valleys, it is obviously not flat nor round. We're talking about the surface to which the gravitational force is perpendicular. Flat Earth would mean that gravity pulls the same direction everywhere, and round Earth would mean that gravity pulls towards the center of Earth.
+
+The question of the shape of Earth is therefore deeply connected to the nature of gravity. One theory, which is consistent with flatness but not roundness of Earth, is that there is a rocket engine on the other side of the pancake Earth that accelerates it and makes things fall down to ground, just like acceleration of a car pulls things to the back seat.
+
+This theory, which actually is my original idea, doesn't satisfy me. Why there is a rocket engine? How does the pancake Earth withstand the forces the rocket engine exerts on it? Why don't we observe the tremor of the engine?
+
+Another theory of gravity says that any two pieces of matter attract each other. The attraction makes large, coarse clouds of matter to collapse towards smaller size and higher density. At some point the density is so high that pressure is enough to cancel the gravitational pull. A state of equilibrium is reached and the cloud has become a dense, round, perhaps solid object. Round, because the attractive force doesn't care about directions, and round is the only finite-sized shape that doesn't care about directions.
+
+So theory suggests that our universe should be filled with round-shaped dense chunks of matter. Look up the sky and you see Sun, Moon and stars. If we now put some little test particles around some collapsed cloud, all the pieces that make up the cloud pull the test particles towards the cloud. The test particles also attract each other, but their mutual attraction is negligible when compared to the combined pull of all the matter in the cloud. A gravitational force that pulls everything towards the center of the round, collapsed cloud of matter has emerged.
+
+These considerations are enough to make me think that pieces of matter attract each other and that Earth is a collapsed cloud of dust. It doesn't matter where the idea came from; the important thing is that it makes sense. Anyway, if someone's interested, I can reveal where the idea came into my mind. It came from Isaac Newton.
+
+Newton formulated his universal law of gravitation in the 17. century. It states that any two bodies of masses \(m_1\) and \(m_2\) attract each other with a force of magnitude
+\begin{eqna}
+|F|=G\frac{m_1m_2}{r^2},
+\end{eqna}
+in which \(G\) is a universal constant and \(r\) the distance between the bodies, and that forces that act on a body are combined simply by adding. Together with Newton's second law
+\begin{eqna}
+F=m\der{^2x}{t^2}
+\end{eqna}
+it predicts the movements of our Solar System as accurately as humans can measure them---except for a little anomaly in Mercury's motion.
+
+Despite the magnificent success of Newton's law of gravitation, in this book we will take the attitude that gravitational forces are not real but fictional, arising from a peculiar perspective, like an optical illusion. As we will see, in some sense the rocket engine theory of gravity is better than Newton's theory.
+
+\mainmatter
 \chapter{Spacetime}
 
 In physics the space of all events---which includes your birth, your death, and the moment you're reading these words---is called spacetime. It is, or at least seems to be, four-dimensional: it takes four coordinates---for example the Greenwhich Mean Time, the elevation, the latitude and the longitude---to label the events. The first of these four is obviously different to the rest: it is timelike, while the other three are spacelike.
@@ -502,7 +532,7 @@ If \(A(r)\ll B(r)\,\der{r}{t}\)??? which corresponds to particles moving slowly 
 \begin{eqna}
 L(r,\tfrac{\dd r}{\dd t})=A^2\sqrt{1-\left(\sqrt{\frac{B}{A}}\der{r}{t}\right)^2}\approx\sqrt{A}-\frac{1}{2}\frac{B}{A}\left(\der{r}{t}\right)^2.
 \end{eqna}
-This is (minus) the Lagrangian of a Newtonian particle of mass \(\frac{B}{A}\) moving in potential \(\sqrt{A(r)}\). We can think of \(\sqrt{A(r)}\) as a gravitational potential that gives rise to gravitational forces. In our modified Rindler metric the world lines oscillate around \(\alpha=0\) because it is a local minimum of gravitational potential.
+This is (minus) the Lagrangian of a Newtonian particle of mass \(\frac{B}{A}\) moving in potential \(\sqrt{A(r)}\). We can think of \(\sqrt{A(r)}\) as a gravitational potential that gives rise to gravitational forces. In our modified Rindler metric the world lines oscillate around \(\alpha=0\) because it is a local minimum of gravitational potential. The gravitational potential is the same function (up to the square root) that determines how fast clocks tick. ``Gravity slows time down.''
 
 To calculate the equation of motion, we change \(r(t)\) to \(r(t)+\delta r(t)\), in which \(\delta r(t)\) is a small variation for which \(\delta r(t_i)=\delta r(t_f)=0\). We get
 \begin{eqna}
@@ -566,29 +596,35 @@ Based on these assumptions and the fact that the line element is always quadrati
 \dd\tau^2&=&A(r)\,\dd t^2-B(r)\,\dd r^2\\
           &&-C(r)\dd r\,\dd t-D(r)\,r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
 \end{eqnb}
-We can simplify the metric by choosing the coordinate system wisely. By changing \(t\rightarrow t(t,r)\) and \(r\rightarrow r(t,r)\) appropriately, we can make \(C(r)\equiv 0\) and \(D(r)\equiv 1\), or alternatively??, \(C(r)\equiv 0\) and \(B(r)\equiv 1\). In the first case we have
+We can eliminate? two of the functions \(A\), \(B\), \(C\) and \(D\) by changing \(t\rightarrow t(t,r)\) and \(r\rightarrow r(t,r)\) appropriately. Let's change them so that \(C(r)\equiv 0\) and \(D(r)\equiv 1\). We get
 \begin{eqna}
 \dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2-\,r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
 \end{eqna}
+If a particle moves only in the up-down direction, we have \(\dd\theta=\dd\phi=0\) and therefore \(\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2\), and we can directly apply the discussion of the previous section. As we calculated, the gravitational force is proportional to?? \(-\der{\sqrt{A}}{r}\). Because gravitational force vanishes at the center of the earth, the function \(A(r)\) must start with zero \(r\) derivative at \(r=0\). Because the force points towards the center of Earth, the derivative cannot be negative, so \(A(r)\) must begin to smoothly increase from \(r=0\).
 
-The further we are from Earth, the 
+The function \(B(r)\) can be thought of as causing some kind of spatial deformation. At this point we cannot say much about it.
 
+If we assume that the gravitational force vanishes as \(r\rightarrow\infty\), then \(A(r)\) must approach a constant value as \(r\rightarrow\infty\). It is reasonable to assume that both \(A(r)\) and \(B(r)\) approach the value 1, as that would mean that the metric approaches the flat metric as we move away from Earth, and earth's effects on spacetime geometry should be non-negligible only close to it.
 
- Third, let's anticipate that the coordinate system can be chosen so that there are no cross terms (for exampe a term of the form \(\dd t\,\dd r\)) in the metric.
-
-
-
-
-
-Next we read from Wikipedia how to calculate \(R_{\alpha\beta}\) of the ansatz. The formula is awful. We set \(R_{\alpha\beta}\) to zero and get some coupled differential equations for \(A(r)\) and \(B(r)\). We solve them and get
+If a particle moves arbitrarily around Earth, then we generally have \(\dd\theta\neq\dd\phi\neq 0\). Anyway, a freely falling particle always moves in a plane with the center of Earth located on it, and we can choose the orientation of the coordinate system so that \(\dd\phi=0\). Then we have
 \begin{eqna}
-A(r)=1-\frac{r_s}{r}\andd B(r)=\frac{1}{A(r)}
+\dd\tau^2=A(r)\,\dd t^2-B(r)\,\dd r^2-\,r^2\,\dd\theta^2.
 \end{eqna}
-with \(r_s\) a positive-valued parameter. Putting everything together we have
-\begin{eqna}
-\dd\tau^2=\left(1-\frac{r_s}{r}\right)\dd t^2-\frac{1}{1-\frac{r_s}{r}}\dd r^2-r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
-\end{eqna}
-This metric is called Schwartzchild metric. It describes the geometry of spacetime around planets, nonorotating black holes and many other astronomical bodies.
+
+
+%The further we are from Earth, the 
+%
+% Third, let's anticipate that the coordinate system can be chosen so that there are no cross terms (for exampe a term of the form \(\dd t\,\dd r\)) in the metric.
+%
+%Next we read from Wikipedia how to calculate \(R_{\alpha\beta}\) of the ansatz. The formula is awful. We set \(R_{\alpha\beta}\) to zero and get some coupled differential equations for \(A(r)\) and \(B(r)\). We solve them and get
+%\begin{eqna}
+%A(r)=1-\frac{r_s}{r}\andd B(r)=\frac{1}{A(r)}
+%\end{eqna}
+%with \(r_s\) a positive-valued parameter. Putting everything together we have
+%\begin{eqna}
+%\dd\tau^2=\left(1-\frac{r_s}{r}\right)\dd t^2-\frac{1}{1-\frac{r_s}{r}}\dd r^2-r^2\left(\dd\theta^2+\sin^2\theta\,\dd\phi^2\right).
+%\end{eqna}
+%This metric is called Schwartzchild metric. It describes the geometry of spacetime around planets, nonorotating black holes and many other astronomical bodies.
 
 
 
@@ -606,7 +642,7 @@ The motion of a freely falling particle from the previous chapter is an example 
 
 We can try to use the action principle for spacetime geometry. In the case of a particle the total action \(\tau\) is a sum of small pieces of action \(\dd\tau\) along the worldline. In the same fashion the action of spacetime should probably be a sum of small pieces of action located every event in the considered spacetime volume.
 
-The first attempt is to just use the spacetime volume as the action, just like we used spacetime length for the action of a particle. This does not work, because the only metric that extremizes spacetime volume is \(\dd\tau^2\equiv0\). The difference is that the particle moves in a background metric---the spacetime metric---but the spacetime metric itself doesn't.
+The first attempt is to just use the spacetime volume as the action, just like we used spacetime length for the action of a particle. This does not work, because the only metric that extremizes spacetime volume is \(\dd\tau^2\equiv0\). The difference is that the particle moves in a background metric relative to which we could fix the endpoints of the worldline---the spacetime metric---but the spacetime metric itself doesn't. (This is?? why the surface term in deriving the field equations comes from derivatives of the metric variation, not absolute values.) Spacetime has \emph{a priori} just topology and perhaps a light-cone structure.
 
 What we need is some kind of absolute number that measures the curvature. By integrating that number over spacetime, with the integration measure calculated from the metric, we get a potentially useful spacetime action function.
 
@@ -732,9 +768,20 @@ Multiplying by \(g^{\alpha\beta}\) and contracting both indices gives \(R=2\,R\)
 
 %\begin{eqna
 
+\chapter{Almost flat spacetime}
 
+Things to consider: mass, energy, force
 
+initial-value problem
 
+electromagnetism
+
+prologue: the shape of earth (why earth is round? the answer is newton's universal gravitation)(cavensish experiments demonstrates it)(Newton's theory explains motion of every planet in our solar system except mercury's)
+
+\newpage
+\tableofcontents
+
+Kaarevuudessa ei ole mitään ihmeellistä. Ei ole mitään syytä olettaa että jokin avaruus josta havaitaan vain pieni osa olisi isossa skaalassa laakea. Ihmiset jotka olettivat maan pinnan (se taso jota vastaan kohtisuorassa painovoima osottaa) olevan laakea tekivät virheen.
 
 \newpage
 There are not many such numbers. One is the so-called Ricci curvature scalar \(R\). If we use it, solving the variational equation will yeld \(R_{\alpha\beta}=0\), in which \(R_{\alpha\beta}\) is so-called Ricci tensor. I will explain in the next section what \(R\) and \(R_{\alpha\beta}\) are. The important, and rather miraculous thing is that \(R_{\alpha\beta}=0\) is the correct field equation for the geometry of empty spacetime.
