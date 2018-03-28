@@ -779,7 +779,75 @@ This is a number called Ricci scalar.
 
 \section{Einstein field equation}
 
-We can use the Ricci scalar in spacetime action. If spacetime is not empty, also the Lagrangian \(\mathcal{L}\) of matter must be taken into consideration. The total action of spacetime filled with matter is a spacetime integral of \(R+\mathcal{L}\).
+We can try to use the Ricci scalar in spacetime action \(S\). If spacetime is empty, the action is just
+\begin{eqna}
+S=\int_{\mathcal{V}}R\,\dd^4\tau,
+\end{eqna}
+in which \(\mathcal{V}\) is the spacetime regime we are considering, and \(\dd^4\tau\) is the integration measure calculated from the metric.
+
+If the spacetime is not empty, the total action will be the action of spacetime plus the action of matter, plus possibly some additional interaction terms. The action of matter is usually taken as a spacetime integral over a Lagrangian \(\mathcal{L}\). This integral must be integrated using the same measure, which is calculated from the spacetime metric. Without additional interactions the total action is
+\begin{eqna}
+S=\int_{\mathcal{V}}(R+\mathcal{L})\,\dd^4\tau.
+\end{eqna}
+
+The motion of matter obviously depends on spacetime geometry. Since \(\mathcal{L}\) is integrated using the measure \(\dd^4\tau\) calculated from the metric, the dependency goes also the other way around: matter and its motion affects spacetime geometry. Mathematically this is because varying the metric varies not only \(R\) but also the measure \(\dd^4\tau\). 
+
+So there is an interaction between spacetime and matter, in other words gravity and matter, even though we didn't include any explicit interaction between gravity and matter. All matter shape spacetime, and all matter react to spacetime geometry. Gravity is universal.
+
+To find the differential equation that locally quantifies the condition \(\delta S=0\), we first have to choose a coordinate system that covers \(\mathcal{V}\). At this first step the coordinates just label events, and the only relation the events It can be shown (I'll show later) that the correct metric integration measure is
+\begin{eqna}
+\dd^4\tau=\sqrt{|g|}\,\dd^4x
+\end{eqna}
+in which \(g\) is the determinant of the metric. The action becomes
+\begin{eqna}
+S=\int_{\mathcal{V}}(R+\mathcal{L})\sqrt{|g|}\,\dd^4x=\int_{\mathcal{V}}\left(\sqrt{|g|}R+\sqrt{|g|}\mathcal{L}\right)\,\dd^4x.
+\end{eqna}
+Here we see the matter-spacetime coupling explicitly as \(\sqrt{|g|}\) multiplies \(\mathcal{L}\).
+
+Let's vary the action. We get
+\begin{eqnb}
+\delta S&=&\int_{\mathcal{V}}\delta\left(\sqrt{|g|}R+\sqrt{|g|}\mathcal{L}\right)\,\dd^4x\\
+        &=&\int_{\mathcal{V}}\left(\frac{\delta\sqrt{|g|}R}{\delta g^{\coa\cob}}+\frac{\delta\sqrt{|g|}\mathcal{L}}{\delta g^{\coa\cob}}\right)\delta g^{\coa\cob}\,\dd^4x\\
+        &=&\int_{\mathcal{V}}\left(\sqrt{|g|}\frac{\delta R}{\delta g^{\coa\cob}}+\frac{\delta\sqrt{|g|}}{\delta g^{\coa\cob}}R+\frac{\delta\sqrt{|g|}\mathcal{L}}{\delta g^{\coa\cob}}\right)\delta g^{\coa\cob}\,\dd^4x\\
+        &=&\int_{\mathcal{V}}\left(\frac{\delta R}{\delta g^{\coa\cob}}+\frac{1}{\sqrt{|g|}}\frac{\delta\sqrt{|g|}}{\delta g^{\coa\cob}}R+\frac{1}{\sqrt{|g|}}\frac{\delta\sqrt{|g|}\mathcal{L}}{\delta g^{\coa\cob}}\right)\delta g^{\coa\cob}\,\sqrt{|g|}\,\dd^4x.
+\end{eqnb}
+We can write this as
+\begin{eqna}
+\int_{\mathcal{V}}\left(G_{\coa\cob}+\alpha_{\coa\cob}-T_{\coa\cob}\right)\delta g^{\coa\cob}\,\sqrt{|g|}\,\dd^4x
+\end{eqna}
+in which \(T_{\coa\cob}\) is the last term in the parenthesis of the second-last equation, 
+
+
+
+Because \(\delta S\) is a scalar, the expression in the parenthesis times \(\delta g^{\coa\cob}\) must also be a scalar, and since \(\delta g^{\coa\cob}\) is a tensor, the quantity in the parenthesis is a tensor. 
+
+
+
+
+
+
+What we would need to do next is to figure out how to calculate the numerical components of the Riemann tensor given the components of the metric and then calculate how they (or the contractions \(R_{\coa\cob}\) and \(R\)) vary as the metric is varied. It is a long road, and I do not inted to do it here (perhaps later in an appendix). Instead of that I quote some results from Wikipedia.
+
+Varying the first term in the parenthesis gives, after dropping a term that becomes a total derivative,
+\begin{eqna}
+\frac{\delta R}{\delta g^{\coa\cob}}=R_{\coa\cob}.%\frac{\delta R_{\coa\cob}g^{\coa\cob}}{\delta g^{\coa\cob}}
+\end{eqna}
+The second term gives
+\begin{eqna}
+\frac{1}{\sqrt{|g|}}\frac{\delta\sqrt{|g|}}{\delta g^{\coa\cob}}R=-\frac{1}{2}R\,g_{\coa\cob}
+\end{eqna}
+
+
+Because \(\delta S\) is a scalar, the expression in the parenthesis times \(\delta g^{\coa\cob}\) must also be a scalar, and since \(\delta g^{\coa\cob}\) is a tensor, the quantity in the parenthesis is a tensor. 
+
+
+
+ also the Lagrangian \(\mathcal{L}\) of matter must be taken into consideration. The total action of spacetime filled with matter is a spacetime integral of \(R+\mathcal{L}\).
+
+volume over which we are integrating.
+
+
+, also the Lagrangian \(\mathcal{L}\) of matter must be taken into consideration. The total action of spacetime filled with matter is a spacetime integral of \(R+\mathcal{L}\).
 
 Volume arises from distance, and therefore the integration measure \(\dd^2\tau\) must be calculated from the metric. It can be shown that in coordinates \(x^\alpha\) the correct integration measure is
 \begin{eqna}
