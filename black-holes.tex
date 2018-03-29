@@ -737,7 +737,11 @@ Actually the operation of plugging vectors and one-forms into a tensor and out a
 
 There is still one more way to think of the \(\dd\tau^2\) and other similar inner products: we first define \(\dd x_\coa=g_{\coa\cob}\dd x^\cob\) and then calculate \(\dd\tau^2=\dd x_\coa\dd x^\coa\). We can use the metric tensor to lower any upper index. To raise indices we define a symmetric upper-index version of the metric tensor \(g^{\coa\cob}\) by the condition \(g^{\coa\cob}g_{\cob\coc}=\delta^{\coa}_{\coc}\), in which \(\delta^{\coa}_{\coc}\) is the Kronecker delta, which is the numeric representation of the unit tensor that does nothing. 
 
-The essence of this jungle of indices is that we form outer products of tensors by writing them in a row and destroy index pairs by contracting upper-lower index pairs. If an index is in the wrong floor, we can raise or lower it with either version of the metric tensor. If we manage to destroy all index pairs, what is left is just a number which does not depend on the coordinate system in any way. Technically the number is a \(0,0\) tensor for which the numeric representation and the tensor itself happens to be the same thing.
+The essence of this jungle of indices is that we form outer products of tensors by writing them in a row and destroy index pairs by contracting upper-lower index pairs. If an index is in the wrong floor, we can raise or lower it with either version of the metric tensor. If we manage to destroy all index pairs, what is left is just a number which does not depend on the coordinate system in any way. Technically the number is a \(0,0\) tensor, called scalar, for which the numeric representation and the tensor itself happens to be the same thing.
+
+Not all indexed bunches numbers represent tensors. We will meet for example the Christoffel symbol \(\chris{\coa\cob\cod}\), which is not a tensor, because it depends not only one single vector in the tangent plane, but also on neighboring vectors in neighboring tangent planes. Christoffel symbol doesn't follow the tensor transformation law.
+
+If a bunch of numbers represent a tensor, it must follow the appropriate tensor transformation law when coordinates are changed. On the other hand, if a bunch of numbers follows a tensor transformation law, then it defines a unique tensor, that is, a multilinear map from vectors and one-forms to numbers.
 
 \section{Curvature}
 
@@ -779,6 +783,8 @@ This is a number called Ricci scalar.
 
 \section{Einstein field equation}
 
+THIS SECTION IS INCORRECT (i think)
+
 We can try to use the Ricci scalar in spacetime action \(S\). If spacetime is empty, the action is just
 \begin{eqna}
 S=\int_{\mathcal{V}}R\,\dd^4\tau,
@@ -800,22 +806,44 @@ To find the differential equation that locally quantifies the condition \(\delta
 \end{eqna}
 in which \(g\) is the determinant of the metric. The action becomes
 \begin{eqna}
-S=\int_{\mathcal{V}}(R+\mathcal{L})\sqrt{|g|}\,\dd^4x=\int_{\mathcal{V}}\left(\sqrt{|g|}R+\sqrt{|g|}\mathcal{L}\right)\,\dd^4x.
+S=\int_{\mathcal{V}}(R+\mathcal{L})\sqrt{|g|}\,\dd^4x.
 \end{eqna}
-Here we see the matter-spacetime coupling explicitly as \(\sqrt{|g|}\) multiplies \(\mathcal{L}\).
+Here we see the matter-spacetime coupling explicitly as \(\sqrt{|g|}\) multiplies \(\mathcal{L}\). Let's define
+\begin{eqna}
+I=(R+\mathcal{L})\sqrt{|g|}=\sqrt{|g|}R+\sqrt{|g|}\mathcal{L}
+\end{eqna}
+so that the action can be written as just \(S=\int_{\mathcal{V}}I\,\dd^4x\). Note that while \(R\) and \(\mathcal{L}\) are scalars, \(I\) is not, since it contains \(\sqrt{|g|}\).
 
-Let's vary the action. We get
+
+
+Let's change the metric by \(\delta g^{\coa\cob}\). We get
+\begin{eqna}
+\delta S=\int_{\mathcal{V}}\delta I\,\dd^4x=\int_{\mathcal{V}}\frac{\delta I}{\delta g^{\coa\cob}}\delta g^{\coa\cob}\,\dd^4x=\int_{\mathcal{V}}\frac{1}{\sqrt{|g|}}\frac{\delta I}{\delta g^{\coa\cob}}\delta g^{\coa\cob}\sqrt{|g|}\,\dd^4x.
+\end{eqna}
+Because \(\delta S\) is the difference of two actions calculated from two different metrics, it is a scalar, and because \(\delta^{\coa\cob}\) is the difference of two tensors, it is a tensor. Since \(\sqrt{|g|}\,\dd^4x\) is the invariant volume element and \(\delta g^{\coa\cob}\) is any small tensor that satisfies some yet-to-be-determined boundary conditions, the quantity
+\begin{eqna}
+\frac{1}{\sqrt{|g|}}\frac{\delta I}{\delta g^{\coa\cob}}
+\end{eqna}
+is a tensor.
+
+
+
+
+\begin{eqna}
+\delta S=\int_{\mathcal{V}}\delta\left(\sqrt{|g|}R+\sqrt{|g|}\mathcal{L}\right)\,\dd^4x\\
+\end{eqna}
+For the first term in parenthesis we get
+
 \begin{eqnb}
-\delta S&=&\int_{\mathcal{V}}\delta\left(\sqrt{|g|}R+\sqrt{|g|}\mathcal{L}\right)\,\dd^4x\\
-        &=&\int_{\mathcal{V}}\left(\frac{\delta\sqrt{|g|}R}{\delta g^{\coa\cob}}+\frac{\delta\sqrt{|g|}\mathcal{L}}{\delta g^{\coa\cob}}\right)\delta g^{\coa\cob}\,\dd^4x\\
-        &=&\int_{\mathcal{V}}\left(\sqrt{|g|}\frac{\delta R}{\delta g^{\coa\cob}}+\frac{\delta\sqrt{|g|}}{\delta g^{\coa\cob}}R+\frac{\delta\sqrt{|g|}\mathcal{L}}{\delta g^{\coa\cob}}\right)\delta g^{\coa\cob}\,\dd^4x\\
+\delta(\ldots)&=&\frac{\delta\sqrt{|g|}R}{\delta g^{\coa\cob}}+\frac{\delta\sqrt{|g|}\mathcal{L}}{\delta g^{\coa\cob}}\\
+        &=&\sqrt{|g|}\frac{\delta R}{\delta g^{\coa\cob}}+\frac{\delta\sqrt{|g|}}{\delta g^{\coa\cob}}R+\frac{\delta\sqrt{|g|}\mathcal{L}}{\delta g^{\coa\cob}}\\
         &=&\int_{\mathcal{V}}\left(\frac{\delta R}{\delta g^{\coa\cob}}+\frac{1}{\sqrt{|g|}}\frac{\delta\sqrt{|g|}}{\delta g^{\coa\cob}}R+\frac{1}{\sqrt{|g|}}\frac{\delta\sqrt{|g|}\mathcal{L}}{\delta g^{\coa\cob}}\right)\delta g^{\coa\cob}\,\sqrt{|g|}\,\dd^4x.
 \end{eqnb}
 We can write this as
 \begin{eqna}
 \int_{\mathcal{V}}\left(G_{\coa\cob}+\alpha_{\coa\cob}-T_{\coa\cob}\right)\delta g^{\coa\cob}\,\sqrt{|g|}\,\dd^4x
 \end{eqna}
-in which \(T_{\coa\cob}\) is the last term in the parenthesis of the second-last equation, 
+in which \(T_{\coa\cob}\) is minus the last term in the parenthesis of the second-last equation, \(G_{\coa\cob}\) is the first two terms in the parenthesis minus their total derivative part, and \(\alpha_{\coa\cob}\) is that total derivative part.
 
 
 
