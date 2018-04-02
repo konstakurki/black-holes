@@ -737,9 +737,9 @@ Actually the operation of plugging vectors and one-forms into a tensor and out a
 
 There is still one more way to think of the \(\dd\tau^2\) and other similar inner products: we first define \(\dd x_\coa=g_{\coa\cob}\dd x^\cob\) and then calculate \(\dd\tau^2=\dd x_\coa\dd x^\coa\). We can use the metric tensor to lower any upper index. To raise indices we define a symmetric upper-index version of the metric tensor \(g^{\coa\cob}\) by the condition \(g^{\coa\cob}g_{\cob\coc}=\delta^{\coa}_{\coc}\), in which \(\delta^{\coa}_{\coc}\) is the Kronecker delta, which is the numeric representation of the unit tensor that does nothing. 
 
-The essence of this jungle of indices is that we form outer products of tensors by writing them in a row and destroy index pairs by contracting upper-lower index pairs. If an index is in the wrong floor, we can raise or lower it with either version of the metric tensor. If we manage to destroy all index pairs, what is left is just a number which does not depend on the coordinate system in any way. Technically the number is a \(0,0\) tensor, called scalar, for which the numeric representation and the tensor itself happens to be the same thing.
+The essence of this jungle of indices is that we form outer products of tensors by writing them in a row and destroy index pairs by contracting upper-lower index pairs. If an index is in the wrong floor, we can raise or lower it with either version of the metric tensor. If we manage to destroy all index pairs, what is left is just a number which does not depend on the coordinate system in any way. Technically the number is a \(0,0\) tensor, called scalar, for which the numeric representation and the tensor itself happens to be the same thing, and the transformation law is simply not doing anything.
 
-Not all indexed bunches numbers represent tensors. We will meet for example the Christoffel symbol \(\chris{\coa\cob\cod}\), which is not a tensor, because it depends not only one single vector in the tangent plane, but also on neighboring vectors in neighboring tangent planes. Christoffel symbol doesn't follow the tensor transformation law.
+Not all indexed bunches numbers represent tensors. We will meet for example the Christoffel symbol \(\chris{\coa}{\cob}{\cod}\), which is not a tensor, because it depends not only one single vector in the tangent plane, but also on neighboring vectors in neighboring tangent planes. Christoffel symbol doesn't follow the tensor transformation law.
 
 If a bunch of numbers represent a tensor, it must follow the appropriate tensor transformation law when coordinates are changed. On the other hand, if a bunch of numbers follows a tensor transformation law, then it defines a unique tensor, that is, a multilinear map from vectors and one-forms to numbers.
 
@@ -806,14 +806,76 @@ To find the differential equation that locally quantifies the condition \(\delta
 \end{eqna}
 in which \(g\) is the determinant of the metric. The action becomes
 \begin{eqna}
-S=\int_{\mathcal{V}}(R+\mathcal{L})\sqrt{|g|}\,\dd^4x.
+S=\int_{\mathcal{V}}(R+\mathcal{L})\sqrt{|g|}\,\dd^4x=\int_{\mathcal{V}}R\sqrt{|g|}+\mathcal{L}\sqrt{|g|}\,\dd^4x.
 \end{eqna}
-Here we see the matter-spacetime coupling explicitly as \(\sqrt{|g|}\) multiplies \(\mathcal{L}\). Let's define
+Here we see the matter-spacetime coupling explicitly as \(\sqrt{|g|}\) multiplies \(\mathcal{L}\). The metric also implicitly affects \(\mathcal{L}\), since \(\mathcal{L}\) is formed by contracting index pairs of tensors in order to get a scalar quantity.
+
+Let's change the metric a little and calculate \(\delta S\). We get
+\begin{eqna}
+\delta S=\int_{\mathcal{V}}\delta\left(R\sqrt{|g|}+\mathcal{L}\sqrt{|g|}\right)\,\dd^4x.%=\int_{\mathcal{V}}\left(\delta R\,\sqrt{|g|}+R\delta\sqrt{|g|}+\delta\left(\mathcal{L}\sqrt{|g|}\right)\right)\,\dd^4x
+\end{eqna}
+To actually calculate \(\delta S\), we need to think in terms of the numeric components of the metric. The variation of \(g^{\coa\cob}\) fixes the variation of \(g_{\coa\cob}\) and vice versa, and we can choose say the upper-index version as the primary numeric metric we vary.
+
+First we have calculate \(\delta\left(R\sqrt{|g|}\right)=\delta R\,\sqrt{|g|}+R\,\delta\sqrt{|g|}\). If we look the formula for calculating the \(R\) (or components of \(R_{\coa\cob}\) or \(R^\coa_{\cob\coc\cod}\)), we see that it depends not only on the components \(g^{\coa\cob}\) of the metric, but also on their second derivatives \(\partial_\coa\partial_\cob g^{\coc\cod}\). Note that \(\partial_\coa\partial_\cob g^{\coc\cod}\) is not a tensor but just an indexed bunch of numbers. Therefore we have
+\begin{eqna}
+\delta R=\frac{\delta R}{\delta g^{\coa\cob}}\delta g^{\coa\cob}+\frac{\delta R}{\delta\partial_\coa \partial_\cob g^{\coc\cod}}\delta\partial_\coa\partial_\cob g^{\coc\cod}.
+\end{eqna}
+For the last term we can write
+\begin{eqnb}
+\frac{\delta R}{\delta\partial_\coa \partial_\cob g^{\coc\cod}}\delta\partial_\coa\partial_\cob g^{\coc\cod}&=&\frac{\delta R}{\delta\partial_\coa \partial_\cob g^{\coc\cod}}\partial_\coa\partial_\cob\delta g^{\coc\cod}\\
+    &=&\partial_\coa\left(\frac{\delta R}{\delta\partial_\coa \partial_\cob g^{\coc\cod}}\partial_\cob\delta g^{\coc\cod}\right)-\partial_\coa\left(\frac{\delta R}{\delta\partial_\coa \partial_\cob g^{\coc\cod}}\right)\partial_\cob\delta g^{\coc\cod}
+\end{eqnb}
+
+
+
+The determinant \(g\) only depends on the componenst of metric, and therefore we have
+\begin{eqna}
+\delta\sqrt{|g|}=\frac{\delta\sqrt{|g|}}{\delta g^{\coa\cob}}\delta g^{\coa\cob}.
+\end{eqna}
+Doing the calculation would give
+\begin{eqna}
+\frac{\delta\sqrt{|g|}}{\delta g^{\coa\cob}}=-\frac{1}{2}g_{\coa\cob}\sqrt{|g|}.
+\end{eqna}
+
+
+The matter-Lagrangian \(\mathcal{L}\) does not couple to spacetime curvature, but only depends on matter's motion just like it would in a flat space in which \(R^\coa_{\cob\coc\cod}\equiv 0\), then \(\mathcal{L}\) also depends only on the components of the metric, and we can write
+\begin{eqna}
+\delta\left(\mathcal{L}\sqrt{|g|}\right)=\frac{\delta\mathcal{L}\sqrt{|g|}}{\delta g^{\coa\cob}}\delta g^{\coa\cob}.
+\end{eqna}
+
+
+only couples 
+
+\section{Solving the field equation}
+
+\begin{itemize}
+\item Flat spacetime. For flat spacetime the Riemann tensor, Ricci tensor and Ricci scalar are all identically zero, and therefore the field equation is satisfied if \(T_{\coa\cob}\equiv0\), that is, the spacetime is empty.
+\item Isotropic and homogenic universe. Cosmological observations suggest that the universe is isotropic around Earth, which together with the idea that Earth is not located in a special place in the universe implies that the universe is homogenic and isotropic around every point. This fixes the metric to be of the form
+\begin{eqna}
+\dd\tau^2=
+\end{eqna}
+Plugging this into the Einstein field equation gives us the Friedmann equation.
+
+Cosmological constant: \(\mathcal{L}=\Lambda\)??
+\item Spherically symmetric, static, empty spacetime.
+\item Cylindrically symmetric, static, empty spacetime.
+\item Stellar interior spacetime.
+\item Gravitational waves.
+\item Numerical solutions to initial-value problems
+
+\end{itemize}
+
+\section{A dream: no matter at all}
+
+Kaluza-Klein
+
+\newpage
+
+ \(g_{\coa\cob}\) Let's define
 \begin{eqna}
 I=(R+\mathcal{L})\sqrt{|g|}=\sqrt{|g|}R+\sqrt{|g|}\mathcal{L}
 \end{eqna}
 so that the action can be written as just \(S=\int_{\mathcal{V}}I\,\dd^4x\). Note that while \(R\) and \(\mathcal{L}\) are scalars, \(I\) is not, since it contains \(\sqrt{|g|}\).
-
 
 
 Let's change the metric by \(\delta g^{\coa\cob}\). We get
